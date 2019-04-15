@@ -15,14 +15,14 @@ L'objectif de Wheels for Pets est double. A l'échelle globale, il est de propos
 
 
 
-#H2 Structure du site:
+## Structure du site:
 
-#H3 HomePage: Header, Side Content, main Content, footer
+HomePage: Header, Side Content, main Content, footer
 Header: Champs de recherche + Section "création d'une course" + accès compte + Déconnexion
 Main content: Articles
 Footer: Mentions légales
 
-#H3 Page création d'une course:  
+## Page création d'une course:  
 
 Titre.
 Date départ.
@@ -35,27 +35,27 @@ Prix demandé
 Aller Retour (bool)
 Retour: Dates
 
-#H3 Page récapitulatif Course:
+## Page récapitulatif Course:
 
 Mêmes infos
 Validée ou non!
 Messages entre les utilisateurs.
 
-#H3 Page Consultation Profil
+## Page Consultation Profil
 
 Notes
 Commentaires
 Nombre de courses déjà effectuées.
 
 
-#H3 Page Liste de courses:
+## Page Liste de courses:
 
 Liste de Courses (titre, départ, arrivée, date)
 
-#H3 Page récap Course: voir au dessus.
+##Page récap Course: voir au dessus.
 
 
-#H3 Page gestion profil:
+## Page gestion profil:
 
 Formulaire:
 
@@ -64,7 +64,7 @@ Commentaires
 Note globale
 
 
-#3 Page inscription
+## Page inscription
 
 mail
 mdp
