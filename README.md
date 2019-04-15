@@ -52,7 +52,7 @@ Nombre de courses déjà effectuées.
 
 Liste de Courses (titre, départ, arrivée, date)
 
-##Page récap Course: voir au dessus.
+## Page récap Course: voir au dessus.
 
 
 ## Page gestion profil:
