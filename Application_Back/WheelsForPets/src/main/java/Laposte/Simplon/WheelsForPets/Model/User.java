@@ -13,12 +13,13 @@ public class User {
     private int Identifiant;
     private String nom;
     private String prenom;
-    @Column(name= "DateNaissance")
+    @Column(name= "datenaissance")
     private Date dateNaissance;
-    private String Password;
+    private String password;
+    @Column (name = "numrue")
     private int numRue;
     private String rue;
-    @Column(name= "CodePostal")
+    @Column(name= "codepostal")
     private int codePostal;
     private String ville;
     private String vehicule;
@@ -61,11 +62,11 @@ public class User {
     }
 
     public String getPassword() {
-        return Password;
+        return password;
     }
 
     public void setPassword(String password) {
-        Password = password;
+        password = password;
     }
 
     public int getNumRue() {
