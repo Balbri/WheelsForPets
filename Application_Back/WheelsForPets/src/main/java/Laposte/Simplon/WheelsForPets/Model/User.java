@@ -1,18 +1,24 @@
 package Laposte.Simplon.WheelsForPets.Model;
 
-import javax.persistence.Id;
+import javax.persistence.*;
 import java.util.Date;
 
+
+@Entity(name = "user")
+@Table(name = "users")
 public class User {
 
     @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private int Identifiant;
     private String nom;
     private String prenom;
+    @Column(name= "DateNaissance")
     private Date dateNaissance;
     private String Password;
     private int numRue;
     private String rue;
+    @Column(name= "CodePostal")
     private int codePostal;
     private String ville;
     private String vehicule;
