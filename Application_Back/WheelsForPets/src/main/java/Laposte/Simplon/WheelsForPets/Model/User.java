@@ -13,6 +13,7 @@ public class User {
     private int Identifiant;
     private String nom;
     private String prenom;
+    @Temporal(TemporalType.DATE)
     @Column(name= "datenaissance")
     private Date dateNaissance;
     private String password;
