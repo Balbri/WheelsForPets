@@ -1,14 +1,12 @@
 package Laposte.Simplon.WheelsForPets.Service;
 
+import Laposte.Simplon.WheelsForPets.Repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.User;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
-
-
-
 import java.util.Optional;
 
 @Service
@@ -18,7 +16,7 @@ public class UserDetailService implements UserDetailsService {
     private UserRepository userRepo;
 
     public UserDetails loadUserByUsername(String username) {
-        final Optional<Users> user = userRepo.findByUsername(username);
+        final Optional<User> user = userRepo.findByUsername(username);
 
         if (!user.isPresent()) {
             throw new UsernameNotFoundException("AppUser '" + username + "' not found");

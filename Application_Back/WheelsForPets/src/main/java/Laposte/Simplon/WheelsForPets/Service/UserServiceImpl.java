@@ -2,18 +2,14 @@ package Laposte.Simplon.WheelsForPets.Service;
 
 import java.util.Date;
 
+import Laposte.Simplon.WheelsForPets.Model.User;
+import Laposte.Simplon.WheelsForPets.Repository.UserRepository;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.AuthenticationException;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 
-import livrocaz.model.Client;
-import livrocaz.model.Commande;
-import livrocaz.model.Users;
-import livrocaz.repository.ClientRepository;
-import livrocaz.repository.CommandeRepository;
-import livrocaz.repository.UserRepository;
 import Laposte.Simplon.WheelsForPets.Security.JwtTokenProvider;
 
 
@@ -21,17 +17,15 @@ import Laposte.Simplon.WheelsForPets.Security.JwtTokenProvider;
 public class UserServiceImpl implements UserService {
 
     private UserRepository userRepo;
-    private ClientRepository clientRepo;
-    private CommandeRepository commandeRepo;
+
+
     private BCryptPasswordEncoder passwordEncoder;
     private JwtTokenProvider jwtTokenProvider;
     private AuthenticationManager authenticationManager;
 
-    public UserServiceImpl(UserRepository userRepository, ClientRepository clientRepository, CommandeRepository commandeRepository,
-                           BCryptPasswordEncoder passwordEncoder, JwtTokenProvider jwtTokenProvider, AuthenticationManager authenticationManager) {
+    public UserServiceImpl(UserRepository userRepository, BCryptPasswordEncoder passwordEncoder, JwtTokenProvider jwtTokenProvider, AuthenticationManager authenticationManager) {
         this.userRepo = userRepository;
-        this.clientRepo = clientRepository;
-        this.commandeRepo = commandeRepository;
+
         this.passwordEncoder = passwordEncoder;
         this.jwtTokenProvider = jwtTokenProvider;
         this.authenticationManager = authenticationManager;
@@ -46,8 +40,8 @@ public class UserServiceImpl implements UserService {
         }
     }
 
-    public String signup(Client client) throws Exception {
-        if (!userRepo.findByUsername(client.getUsers().getUsername()).isPresent()) {
+    public String signup(User user) throws Exception {
+        if (!userRepo.findByUsername(getUsername()).isPresent()) {
             Users userToSave = new Users(client.getUsers().getUsername(), passwordEncoder.encode(client.getUsers().getPassword()), client.getUsers().getAuthority());
             Client clientToSave = new Client(client.getNomClient(),
                     client.getPrenomClient(),

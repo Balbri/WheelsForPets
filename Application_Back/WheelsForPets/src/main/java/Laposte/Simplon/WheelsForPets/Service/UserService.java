@@ -1,5 +1,6 @@
 package Laposte.Simplon.WheelsForPets.Service;
 
+import Laposte.Simplon.WheelsForPets.Model.User;
 import org.springframework.stereotype.Service;
 
 
