@@ -3,11 +3,14 @@ package Laposte.Simplon.WheelsForPets.Model;
 
 
 import javax.persistence.*;
+import java.util.Collection;
 import java.util.Date;
 
 @Entity
 @Table(name = "annonces")
 public class Annonce {
+
+
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -47,6 +50,8 @@ public class Annonce {
     @Column (name = "Identifiant_Users")
     private int identifiantUser;
 
+    @OneToMany
+    private Collection <Message> messages;
 
     public Annonce() {
     }
@@ -145,5 +150,13 @@ public class Annonce {
 
     public void setIdentifiantUser(int identifiantUser) {
         this.identifiantUser = identifiantUser;
+    }
+
+    public Collection<Message> getMessages() {
+        return messages;
+    }
+
+    public void setMessages(Collection<Message> messages) {
+        this.messages = messages;
     }
 }
