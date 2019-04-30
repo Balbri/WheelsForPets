@@ -1,7 +1,6 @@
 package Laposte.Simplon.WheelsForPets.Model;
 
-import com.sun.tools.javac.jvm.Gen;
-import sun.util.resources.Bundles;
+
 
 import javax.persistence.*;
 import java.util.Date;
