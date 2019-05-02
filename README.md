@@ -46,6 +46,48 @@ L'objectif de Wheels for Pets est double. A l'échelle globale, il est de propos
 .Un article est une entité indépendante, n'ayant aucune relation avec les autres tables.
 
 
+## Technologies et langages utilisés:
+
+Base de Données: MySQL, Modélisation avec jMerise, 
+
+Back office: Application en Java, application Spring.
+
+Front office: Angular 6
+
+Contrôle de version: GitHub
+
+Test de requêtes à la base de données: Postman
+
+
+### Dépendances: 
+
+
+<strong>mysql-connector-java :</strong> Pilote permettant d'assurer la connexion à la base de données.
+
+<strong>spring-boot-starter-web :</strong> Permet de développer une application web.
+
+
+<strong>spring-boot-starter-data-jpa :</strong> Implémentation d'Hibernate pour utiliser les données Java Persistance API.
+
+<strong>spring-boot-starter-security :</strong> Implémentation des options relatives à la sécurisation de l'application.
+
+<strong>spring-boot-starter-thymeleaf :</strong> Module visuel utilisé par Spring Security pour le formulaire de connexion.
+
+
+<strong>jjwt-api :</strong> Module permettant de gérer les tokens de sécurité.
+
+<strong>jjwt-impl :</strong> Module d'implémentation de Json Web Token.
+
+<strong>jjwt-jackson :</strong> Mapper d'objet pour Json Web Token.
+
+
+<strong>spring-boot-starter-test :</strong> Pour les tests unitaires.
+
+<strong>spring-security-test :</strong> Pour les tests unitaires liés à Spring Security.
+
+
+<strong>spring-boot-devtools :</strong> Outil de conception pour optimiser le développement.
+
 
 
 
