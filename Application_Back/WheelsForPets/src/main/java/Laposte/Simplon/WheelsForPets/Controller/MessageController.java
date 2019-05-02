@@ -55,6 +55,16 @@ public class MessageController {
     }
 
     /*
+     * Methode get par Annonce
+     */
+    @RequestMapping(value = "/admin/messages/a/{identifiant}", method = RequestMethod.GET)
+    public ResponseEntity<Collection<Message>> getMessageByAnnonceId(@PathVariable int identifiant) {
+        return new ResponseEntity<Collection<Message>>(messageRepository.findByIdAnnonce(identifiant), HttpStatus.OK);
+
+    }
+
+
+    /*
      * Methode POST
      */
     @RequestMapping(value = "/admin/messages", method = RequestMethod.POST, produces= "application/json", consumes = MediaType.APPLICATION_JSON_VALUE )

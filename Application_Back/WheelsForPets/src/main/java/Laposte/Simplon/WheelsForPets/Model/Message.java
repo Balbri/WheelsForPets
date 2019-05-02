@@ -10,6 +10,7 @@ import java.util.Date;
 public class Message {
 
     @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private int identifiant;
     private String titre;
     private String contenu;
@@ -17,7 +18,8 @@ public class Message {
     @Temporal(TemporalType.DATE)
     private Date date;
 
-    @Column(name = "identifiant_annonces")
+
+    @Column(name="identifiant_annonces")
     private int identifiantAnnonce;
 
     @Column(name = "identifiant_users")
