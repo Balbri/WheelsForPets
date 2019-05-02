@@ -29,7 +29,7 @@ public class MessageController {
     /*
      * Methode Get All
      */
-    @RequestMapping(method = {RequestMethod.GET}, value = "/admin/messages", produces = "application/json")
+    @RequestMapping(method = {RequestMethod.GET}, value = "/messages", produces = "application/json")
     public ResponseEntity<Collection<Message>> getAllMessages(){
         return new ResponseEntity<Collection<Message>>(messageRepository.findAll(), HttpStatus.OK);
     }
@@ -37,7 +37,7 @@ public class MessageController {
     /*
      * Methode get par ID
      */
-    @RequestMapping(value = "/admin/messages/{identifiant}", method = RequestMethod.GET)
+    @RequestMapping(value = "/messages/{identifiant}", method = RequestMethod.GET)
     public ResponseEntity<?> getMessageById(@PathVariable int identifiant){
         Optional<Message> message = null;
 
@@ -57,7 +57,7 @@ public class MessageController {
     /*
      * Methode get par Annonce
      */
-    @RequestMapping(value = "/admin/messages/a/{identifiant}", method = RequestMethod.GET)
+    @RequestMapping(value = "/annonces/messages/{identifiant}", method = RequestMethod.GET)
     public ResponseEntity<Collection<Message>> getMessageByAnnonceId(@PathVariable int identifiant) {
         return new ResponseEntity<Collection<Message>>(messageRepository.findByIdAnnonce(identifiant), HttpStatus.OK);
 
@@ -67,7 +67,7 @@ public class MessageController {
     /*
      * Methode POST
      */
-    @RequestMapping(value = "/admin/messages", method = RequestMethod.POST, produces= "application/json", consumes = MediaType.APPLICATION_JSON_VALUE )
+    @RequestMapping(value = "/messages", method = RequestMethod.POST, produces= "application/json", consumes = MediaType.APPLICATION_JSON_VALUE )
     public ResponseEntity<?> addMessage(@RequestBody Message message){
         Message resultMessage = null;
         try {
@@ -83,7 +83,7 @@ public class MessageController {
      * Methode PUT
      */
 
-    @PutMapping(value = "/admin/messages/{identifiant}", produces = MediaType.APPLICATION_JSON_VALUE, consumes = MediaType.APPLICATION_JSON_VALUE)
+    @PutMapping(value = "/messages/{identifiant}", produces = MediaType.APPLICATION_JSON_VALUE, consumes = MediaType.APPLICATION_JSON_VALUE)
     @ResponseBody
     public ResponseEntity<?> modifyMessage(@RequestBody Message message) {
         Message messageAmodifier = null;
@@ -99,7 +99,7 @@ public class MessageController {
     /*
      * Methode DELETE
      */
-    @RequestMapping(value = "/admin/messages/{identifiant}", method = RequestMethod.DELETE)
+    @RequestMapping(value = "/messages/{identifiant}", method = RequestMethod.DELETE)
     public ResponseEntity<?> deleteMessage(@PathVariable Integer identifiant){
         Message messageAsupprimer = null;
         try {

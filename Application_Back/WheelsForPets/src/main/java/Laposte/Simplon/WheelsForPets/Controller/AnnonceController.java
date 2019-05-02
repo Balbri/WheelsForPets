@@ -29,7 +29,7 @@ public class AnnonceController {
     /*
      * Methode Get All
      */
-    @RequestMapping(method = {RequestMethod.GET}, value = "/admin/annonces", produces = "application/json")
+    @RequestMapping(method = {RequestMethod.GET}, value = "/annonces", produces = "application/json")
     public ResponseEntity<Collection<Annonce>> getAllAnnonces(){
         return new ResponseEntity<Collection<Annonce>>(annonceRepository.findAll(), HttpStatus.OK);
     }
@@ -37,7 +37,7 @@ public class AnnonceController {
     /*
      * Methode get par ID
      */
-    @RequestMapping(value = "/admin/annonces/{identifiant}", method = RequestMethod.GET)
+    @RequestMapping(value = "/annonces/{identifiant}", method = RequestMethod.GET)
     public ResponseEntity<?> getAnnonceById(@PathVariable int identifiant){
         Optional<Annonce> annonce = null;
 
@@ -54,10 +54,19 @@ public class AnnonceController {
         return ResponseEntity.status(HttpStatus.OK).body(annonce);
     }
 
+
+    /*
+     * Methode Get 3 last
+     */
+    @RequestMapping(method = {RequestMethod.GET}, value = "/dernieresannonces", produces = "application/json")
+    public ResponseEntity<Collection<Annonce>> getLast3Annonces(){
+        return new ResponseEntity<Collection<Annonce>>(annonceRepository.getLast3Annonces(), HttpStatus.OK);
+    }
+
     /*
      * Methode POST
      */
-    @RequestMapping(value = "/admin/annonces", method = RequestMethod.POST, produces= "application/json", consumes = MediaType.APPLICATION_JSON_VALUE )
+    @RequestMapping(value = "/annonces", method = RequestMethod.POST, produces= "application/json", consumes = MediaType.APPLICATION_JSON_VALUE )
     public ResponseEntity<?> addAnnonce(@RequestBody Annonce annonce){
         Annonce resultAnnonce = null;
         try {
@@ -73,7 +82,7 @@ public class AnnonceController {
      * Methode PUT
      */
 
-    @PutMapping(value = "/admin/annonces/{identifiant}", produces = MediaType.APPLICATION_JSON_VALUE, consumes = MediaType.APPLICATION_JSON_VALUE)
+    @PutMapping(value = "/annonces/{identifiant}", produces = MediaType.APPLICATION_JSON_VALUE, consumes = MediaType.APPLICATION_JSON_VALUE)
     @ResponseBody
     public ResponseEntity<?> modifyAnnonce(@RequestBody Annonce annonce) {
         Annonce annonceAmodifier = null;
@@ -89,7 +98,7 @@ public class AnnonceController {
     /*
      * Methode DELETE
      */
-    @RequestMapping(value = "/admin/annonces/{identifiant}", method = RequestMethod.DELETE)
+    @RequestMapping(value = "/annonces/{identifiant}", method = RequestMethod.DELETE)
     public ResponseEntity<?> deleteAnnonce(@PathVariable Integer identifiant){
         Annonce annonceAsupprimer = null;
         try {

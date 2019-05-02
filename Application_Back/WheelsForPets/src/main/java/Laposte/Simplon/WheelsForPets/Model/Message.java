@@ -26,6 +26,10 @@ public class Message {
     private int identifiantUser;
 
 
+
+    public Message() {
+    }
+
     public int getIdentifiant() {
         return identifiant;
     }
