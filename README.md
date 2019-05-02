@@ -35,65 +35,17 @@ L'objectif de Wheels for Pets est double. A l'échelle globale, il est de propos
 [Maquette Homepage](https://github.com/Balbri/WheelsForPets/blob/master/Exports/%5BCrea%5DWFP_Home_01.jpg)
 
 
+## Règles de gestion:
+
+.Un utilisateur doit pouvoir poster, consulter et souscrire à une annonce. Il possède un ou plusieurs animaux. Il peut lire et poster des messages. Il est pourvu d'un Role utilisateur (son niveau d'accès sur le site).
+
+.Une annonce peut contenir des messages. Elle contient aussi un unique emplacement de réservation utilisable par un autre utilisateur.
+
+.L'administrateur peut consulter toutes les tables et les gérer, il peut aussi poster des articles.
+
+.Un article est une entité indépendante, n'ayant aucune relation avec les autres tables.
 
 
-## Structure du site:
-
-HomePage: Header, Side Content, main Content, footer
-Header: Champs de recherche + Section "création d'une course" + accès compte + Déconnexion
-Main content: Articles
-Footer: Mentions légales
-
-## Page création d'une course:  
-
-Titre.
-Date départ.
-Date arrivée.
-Lieu départ.
-Lieu d'arrivée.
-Places disponibles.
-Emplacement disponible.
-Prix demandé
-Aller Retour (bool)
-Retour: Dates
-
-## Page récapitulatif Course:
-
-Mêmes infos
-Validée ou non!
-Messages entre les utilisateurs.
-
-## Page Consultation Profil
-
-Notes
-Commentaires
-Nombre de courses déjà effectuées.
-
-
-## Page Liste de courses:
-
-Liste de Courses (titre, départ, arrivée, date)
-
-## Page récap Course: voir au dessus.
-
-
-## Page gestion profil:
-
-Formulaire:
-
-Nom, Prénom, Date naissance, Adresse, Véhicule, Animaux, Matériel de transport.
-Commentaires
-Note globale
-
-
-## Page inscription
-
-mail
-mdp
-nom
-prenom
-date naissance
-adresse
 
 
 
