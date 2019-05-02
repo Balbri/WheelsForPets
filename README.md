@@ -14,10 +14,20 @@ Wheels For pets a pour objectif de répondre à cette problématique en permetta
 L'objectif de Wheels for Pets est double. A l'échelle globale, il est de proposer une solution simple et efficace pour fluidifier les adoptions dans le milieu associatif. A l'échelle personnelle, il peut permettre à quelqu'un de non véhiculé de déplacer son animal sans devoir prendre les transports en communs, qui peuvent être stressants pour les bêtes.
 
 
+## Cas d'utilisation
+
+![Diagramme UseCase](https://github.com/Balbri/WheelsForPets/blob/master/Documentation%20Source/Usecase.png)
+
+## Base de Données
+
+![MLD Wheels For Pets](https://github.com/Balbri/WheelsForPets/blob/master/Documentation%20Source/MLD.png)
+
 
 ## Wireframes
 [Wireframe Homepage](https://github.com/Balbri/WheelsForPets/blob/master/Wireframes/%5BWF%5DWFP_Home_01.jpg)
+
 [Wireframe Home Mobile Base](https://github.com/Balbri/WheelsForPets/blob/master/Wireframes/%5BWF%5DWFP_Home_Mobile_02.jpg)
+
 [Wireframe Home Mobile Etendue](https://github.com/Balbri/WheelsForPets/blob/master/Wireframes/%5BWF%5DWFP_Home_Mobile_01.jpg)
 
 ## Maquettes
