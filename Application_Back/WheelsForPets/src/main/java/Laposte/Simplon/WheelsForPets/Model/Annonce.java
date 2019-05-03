@@ -3,7 +3,9 @@ package Laposte.Simplon.WheelsForPets.Model;
 
 
 import javax.persistence.*;
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
 @Entity
 @Table(name = "annonces")
@@ -11,7 +13,8 @@ public class Annonce {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private int Identifiant;
+    @Column(name = "annonceid")
+    private int annonceId;
 
     @Temporal(TemporalType.DATE)
     @Column(name="dateredaction")
@@ -44,20 +47,22 @@ public class Annonce {
 
     private float prix;
 
-    @Column (name = "Identifiant_Users")
-    private int identifiantUser;
+    @OneToMany(mappedBy = "annonce")
+    private List<Message> messageList = new ArrayList<>();
+
+    @ManyToOne
+    @JoinColumn(name = "userid")
+    private User user;
+
+
+
+
+
 
 
     public Annonce() {
     }
 
-    public int getIdentifiant() {
-        return Identifiant;
-    }
-
-    public void setIdentifiant(int identifiant) {
-        Identifiant = identifiant;
-    }
 
     public Date getDateRedaction() {
         return dateRedaction;
@@ -139,11 +144,29 @@ public class Annonce {
         this.prix = prix;
     }
 
-    public int getIdentifiantUser() {
-        return identifiantUser;
+    public int getAnnonceId() {
+        return annonceId;
     }
 
-    public void setIdentifiantUser(int identifiantUser) {
-        this.identifiantUser = identifiantUser;
+    public void setAnnonceId(int annonceId) {
+        this.annonceId = annonceId;
     }
+
+    public List<Message> getMessageList() {
+        return messageList;
+    }
+
+    public void setMessageList(List<Message> messageList) {
+        this.messageList = messageList;
+    }
+
+    public User getUser() {
+        return user;
+    }
+
+    public void setUser(User user) {
+        this.user = user;
+    }
+
+
 }

@@ -39,11 +39,11 @@ public class ReservationController {
      * Methode get par ID
      */
     @RequestMapping(value = "/reservation/{identifiant}", method = RequestMethod.GET)
-    public ResponseEntity<?> getReservationById(@PathVariable int identifiant){
+    public ResponseEntity<?> getReservationById(@PathVariable int reservationId){
         Optional<Reservation> reservation = null;
 
         try {
-            reservation =(reservationRepository.findById(identifiant));
+            reservation =(reservationRepository.findById(reservationId));
 
         } catch (Exception e) {
             return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(e.getMessage());
@@ -59,8 +59,8 @@ public class ReservationController {
      * Methode get par Annonce
      */
     @RequestMapping(value = "/annonces/reservations/{identifiant}", method = RequestMethod.GET)
-    public ResponseEntity<Collection<Reservation>> getReservationByAnnonceId(@PathVariable int identifiant) {
-        return new ResponseEntity<Collection<Reservation>>(reservationRepository.findByIdAnnonce(identifiant), HttpStatus.OK);
+    public ResponseEntity<Collection<Reservation>> getReservationByAnnonceId(@PathVariable int reservationId) {
+        return new ResponseEntity<Collection<Reservation>>(reservationRepository.findByIdAnnonce(reservationId), HttpStatus.OK);
 
     }
 
@@ -101,11 +101,11 @@ public class ReservationController {
      * Methode DELETE
      */
     @RequestMapping(value = "/reservations/{identifiant}", method = RequestMethod.DELETE)
-    public ResponseEntity<?> deleteReservation(@PathVariable Integer identifiant){
+    public ResponseEntity<?> deleteReservation(@PathVariable Integer reservationId){
         Reservation reservationAsupprimer = null;
         try {
-            reservationAsupprimer = reservationRepository.findById(identifiant).get();
-            reservationRepository.deleteById(identifiant);
+            reservationAsupprimer = reservationRepository.findById(reservationId).get();
+            reservationRepository.deleteById(reservationId);
         } catch (Exception e) {
             return ResponseEntity.status(HttpStatus.NOT_FOUND).body(e.getMessage());
         }

@@ -13,8 +13,8 @@ public class Authority {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    @Column(name = "Identifiant")
-    private int identifiant;
+    @Column(name = "authorityid")
+    private int authorityid;
     private String authority;
     @Column(unique = true)
     private String username;
@@ -31,11 +31,11 @@ public class Authority {
     }
 
     public int getIdAuth() {
-        return identifiant;
+        return authorityid;
     }
 
     public void setIdAuth(int idAuth) {
-        this.identifiant = idAuth;
+        this.authorityid = idAuth;
     }
 
     public String getAuthority() {

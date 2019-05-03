@@ -38,11 +38,11 @@ public class MessageController {
      * Methode get par ID
      */
     @RequestMapping(value = "/messages/{identifiant}", method = RequestMethod.GET)
-    public ResponseEntity<?> getMessageById(@PathVariable int identifiant){
+    public ResponseEntity<?> getMessageById(@PathVariable int messageId){
         Optional<Message> message = null;
 
         try {
-            message =(messageRepository.findById(identifiant));
+            message =(messageRepository.findById(messageId));
 
         } catch (Exception e) {
             return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(e.getMessage());
@@ -58,8 +58,8 @@ public class MessageController {
      * Methode get par Annonce
      */
     @RequestMapping(value = "/annonces/messages/{identifiant}", method = RequestMethod.GET)
-    public ResponseEntity<Collection<Message>> getMessageByAnnonceId(@PathVariable int identifiant) {
-        return new ResponseEntity<Collection<Message>>(messageRepository.findByIdAnnonce(identifiant), HttpStatus.OK);
+    public ResponseEntity<Collection<Message>> getMessageByAnnonceId(@PathVariable int messageId) {
+        return new ResponseEntity<Collection<Message>>(messageRepository.findByIdAnnonce(messageId), HttpStatus.OK);
 
     }
 
@@ -100,11 +100,11 @@ public class MessageController {
      * Methode DELETE
      */
     @RequestMapping(value = "/messages/{identifiant}", method = RequestMethod.DELETE)
-    public ResponseEntity<?> deleteMessage(@PathVariable Integer identifiant){
+    public ResponseEntity<?> deleteMessage(@PathVariable Integer messageId){
         Message messageAsupprimer = null;
         try {
-            messageAsupprimer = messageRepository.findById(identifiant).get();
-            messageRepository.deleteById(identifiant);
+            messageAsupprimer = messageRepository.findById(messageId).get();
+            messageRepository.deleteById(messageId);
         } catch (Exception e) {
             return ResponseEntity.status(HttpStatus.NOT_FOUND).body(e.getMessage());
         }

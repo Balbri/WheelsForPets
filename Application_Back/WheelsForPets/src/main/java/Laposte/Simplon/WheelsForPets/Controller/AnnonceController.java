@@ -38,11 +38,11 @@ public class AnnonceController {
      * Methode get par ID
      */
     @RequestMapping(value = "/annonces/{identifiant}", method = RequestMethod.GET)
-    public ResponseEntity<?> getAnnonceById(@PathVariable int identifiant){
+    public ResponseEntity<?> getAnnonceById(@PathVariable int annonceId){
         Optional<Annonce> annonce = null;
 
         try {
-            annonce =(annonceRepository.findById(identifiant));
+            annonce =(annonceRepository.findById(annonceId));
 
         } catch (Exception e) {
             return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(e.getMessage());
@@ -99,11 +99,11 @@ public class AnnonceController {
      * Methode DELETE
      */
     @RequestMapping(value = "/annonces/{identifiant}", method = RequestMethod.DELETE)
-    public ResponseEntity<?> deleteAnnonce(@PathVariable Integer identifiant){
+    public ResponseEntity<?> deleteAnnonce(@PathVariable Integer annonceId){
         Annonce annonceAsupprimer = null;
         try {
-            annonceAsupprimer = annonceRepository.findById(identifiant).get();
-            annonceRepository.deleteById(identifiant);
+            annonceAsupprimer = annonceRepository.findById(annonceId).get();
+            annonceRepository.deleteById(annonceId);
         } catch (Exception e) {
             return ResponseEntity.status(HttpStatus.NOT_FOUND).body(e.getMessage());
         }

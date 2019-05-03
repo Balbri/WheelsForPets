@@ -1,7 +1,9 @@
 package Laposte.Simplon.WheelsForPets.Model;
 
 import javax.persistence.*;
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
 
 @Entity(name = "user")
@@ -10,7 +12,8 @@ public class User {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private int Identifiant;
+    @Column(name = "userid")
+    private int userId;
     private String nom;
     private String prenom;
     @Temporal(TemporalType.DATE)
@@ -27,15 +30,22 @@ public class User {
     private String Username;
     private boolean enabled;
 
+    @OneToMany(mappedBy = "user")
+    private List<Annonce> annonceList = new ArrayList<>();
+
+    @OneToMany(mappedBy = "user")
+    private List<Message> messageList = new ArrayList<>();
+
+
     public User() {
             }
 
-    public int getIdentifiant() {
-        return Identifiant;
+    public int getUserId() {
+        return userId;
     }
 
-    public void setIdentifiant(int identifiant) {
-        Identifiant = identifiant;
+    public void setUserId(int userId) {
+        this.userId = userId;
     }
 
     public String getNom() {
@@ -124,5 +134,21 @@ public class User {
 
     public void setEnabled(boolean enabled) {
         this.enabled = enabled;
+    }
+
+    public List<Message> getMessageList() {
+        return messageList;
+    }
+
+    public void setMessageList(List<Message> messageList) {
+        this.messageList = messageList;
+    }
+
+    public List<Annonce> getAnnonceList() {
+        return annonceList;
+    }
+
+    public void setAnnonceList(List<Annonce> annonceList) {
+        this.annonceList = annonceList;
     }
 }

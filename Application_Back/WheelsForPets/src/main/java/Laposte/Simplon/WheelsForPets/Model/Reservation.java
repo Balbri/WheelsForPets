@@ -9,25 +9,29 @@ public class Reservation {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private int identifiant;
+    @Column(name = "reservationid")
+    private int reservationId;
     private boolean validee;
 
-    @Column(name= "identifiant_users")
-    private int identifiantUser;
+    @OneToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "userid")
+    private User user;
 
-    @Column(name= "identifiant_annonces")
-    private int identifiantAnnonce;
+
+    @OneToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "annonceid")
+    private Annonce annonce;
 
 
     public Reservation() {
     }
 
-    public int getIdentifiant() {
-        return identifiant;
+    public int getreservationId() {
+        return reservationId;
     }
 
-    public void setIdentifiant(int identifiant) {
-        this.identifiant = identifiant;
+    public void setreservationId(int reservationId) {
+        this.reservationId = reservationId;
     }
 
     public boolean isValidee() {
@@ -38,19 +42,29 @@ public class Reservation {
         this.validee = validee;
     }
 
-    public int getIdentifiantUser() {
-        return identifiantUser;
+    public int getReservationId() {
+        return reservationId;
     }
 
-    public void setIdentifiantUser(int identifiantUser) {
-        this.identifiantUser = identifiantUser;
+    public void setReservationId(int reservationId) {
+        this.reservationId = reservationId;
     }
 
-    public int getIdentifiantAnnonce() {
-        return identifiantAnnonce;
+
+
+    public User getUser() {
+        return user;
     }
 
-    public void setIdentifiantAnnonce(int identifiantAnnonce) {
-        this.identifiantAnnonce = identifiantAnnonce;
+    public void setUser(User user) {
+        this.user = user;
+    }
+
+    public Annonce getAnnonce() {
+        return annonce;
+    }
+
+    public void setAnnonce(Annonce annonce) {
+        this.annonce = annonce;
     }
 }

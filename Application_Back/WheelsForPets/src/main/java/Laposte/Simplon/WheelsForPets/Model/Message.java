@@ -11,32 +11,29 @@ public class Message {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private int identifiant;
+    @Column(name = "messageid")
+    private int messageId;
     private String titre;
     private String contenu;
 
     @Temporal(TemporalType.DATE)
     private Date date;
 
+    @ManyToOne
+    @JoinColumn(name="annonceid")
+    private Annonce annonce;
 
-    @Column(name="identifiant_annonces")
-    private int identifiantAnnonce;
 
-    @Column(name = "identifiant_users")
-    private int identifiantUser;
+    @ManyToOne
+    @JoinColumn(name="userid")
+    private User user;
 
 
 
     public Message() {
     }
 
-    public int getIdentifiant() {
-        return identifiant;
-    }
 
-    public void setIdentifiant(int identifiant) {
-        this.identifiant = identifiant;
-    }
 
     public String getTitre() {
         return titre;
@@ -62,19 +59,27 @@ public class Message {
         this.date = date;
     }
 
-    public int getIdentifiantAnnonce() {
-        return identifiantAnnonce;
+    public int getMessageId() {
+        return messageId;
     }
 
-    public void setIdentifiantAnnonce(int identifiantAnnonce) {
-        this.identifiantAnnonce = identifiantAnnonce;
+    public void setMessageId(int messageId) {
+        this.messageId = messageId;
     }
 
-    public int getIdentifiantUser() {
-        return identifiantUser;
+    public Annonce getAnnonce() {
+        return annonce;
     }
 
-    public void setIdentifiantUser(int identifiantUser) {
-        this.identifiantUser = identifiantUser;
+    public void setAnnonce(Annonce annonce) {
+        this.annonce = annonce;
+    }
+
+    public User getUser() {
+        return user;
+    }
+
+    public void setUser(User user) {
+        this.user = user;
     }
 }
