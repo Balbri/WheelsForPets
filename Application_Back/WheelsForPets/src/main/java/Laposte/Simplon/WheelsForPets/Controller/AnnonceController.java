@@ -1,13 +1,13 @@
 package Laposte.Simplon.WheelsForPets.Controller;
 
 import Laposte.Simplon.WheelsForPets.Model.Annonce;
+import Laposte.Simplon.WheelsForPets.Model.Reservation;
 import Laposte.Simplon.WheelsForPets.Repository.AnnonceRepository;
-import Laposte.Simplon.WheelsForPets.Repository.UserRepository;
+import Laposte.Simplon.WheelsForPets.Repository.ReservationRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
-import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.Collection;
@@ -25,7 +25,6 @@ public class AnnonceController {
     private AnnonceRepository annonceRepository;
 
 
-
     /*
      * Methode Get All
      */
@@ -33,6 +32,8 @@ public class AnnonceController {
     public ResponseEntity<Collection<Annonce>> getAllAnnonces(){
         return new ResponseEntity<Collection<Annonce>>(annonceRepository.findAll(), HttpStatus.OK);
     }
+
+
 
     /*
      * Methode get par ID
@@ -55,13 +56,6 @@ public class AnnonceController {
     }
 
 
-    /*
-     * Methode Get 3 last
-     */
-    @RequestMapping(method = {RequestMethod.GET}, value = "/dernieresannonces", produces = "application/json")
-    public ResponseEntity<Collection<Annonce>> getLast3Annonces(){
-        return new ResponseEntity<Collection<Annonce>>(annonceRepository.getLast3Annonces(), HttpStatus.OK);
-    }
 
     /*
      * Methode POST

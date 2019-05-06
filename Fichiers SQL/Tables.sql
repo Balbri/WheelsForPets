@@ -8,12 +8,12 @@
 #------------------------------------------------------------
 
 CREATE TABLE Articles(
-        Identifiant Int  Auto_increment  NOT NULL ,
-        Titre       Varchar (255) NOT NULL ,
-        Date        Date NOT NULL ,
-        Contenu     Text NOT NULL ,
-        Visuel      Blob NOT NULL
-	,CONSTRAINT Articles_PK PRIMARY KEY (Identifiant)
+        articleId Int  Auto_increment  NOT NULL ,
+        titre     Varchar (255) NOT NULL ,
+        date      Date NOT NULL ,
+        contenu   Text NOT NULL ,
+        visuel    Blob NOT NULL
+	,CONSTRAINT Articles_PK PRIMARY KEY (articleId)
 )ENGINE=InnoDB;
 
 
@@ -22,10 +22,10 @@ CREATE TABLE Articles(
 #------------------------------------------------------------
 
 CREATE TABLE Authorities(
-        Identifiant Int  Auto_increment  NOT NULL ,
+        authorityId Int  Auto_increment  NOT NULL ,
         username    Varchar (55) NOT NULL ,
         authority   Varchar (55) NOT NULL
-	,CONSTRAINT Authorities_PK PRIMARY KEY (Identifiant)
+	,CONSTRAINT Authorities_PK PRIMARY KEY (authorityId)
 )ENGINE=InnoDB;
 
 
@@ -34,22 +34,22 @@ CREATE TABLE Authorities(
 #------------------------------------------------------------
 
 CREATE TABLE Users(
-        Identifiant             Int  Auto_increment  NOT NULL ,
-        password                Varchar (255) NOT NULL ,
-        Nom                     Varchar (50) NOT NULL ,
-        Prenom                  Varchar (55) NOT NULL ,
-        DateNaissance           Date NOT NULL ,
-        NumRue                  Int NOT NULL ,
-        Rue                     Varchar (55) NOT NULL ,
-        Code_Postal             Int NOT NULL ,
-        Ville                   Varchar (55) NOT NULL ,
-        Vehicule                Varchar (55) NOT NULL ,
-        Username                Varchar (55) NOT NULL ,
-        enabled                 Bool NOT NULL ,
-        Identifiant_Authorities Int NOT NULL
-	,CONSTRAINT Users_PK PRIMARY KEY (Identifiant)
+        UserId        Int  Auto_increment  NOT NULL ,
+        password      Varchar (255) NOT NULL ,
+        nom           Varchar (50) NOT NULL ,
+        prenom        Varchar (55) NOT NULL ,
+        dateNaissance Date NOT NULL ,
+        numRue        Int NOT NULL ,
+        rue           Varchar (55) NOT NULL ,
+        codePostal    Int NOT NULL ,
+        ville         Varchar (55) NOT NULL ,
+        vehicule      Varchar (55) NOT NULL ,
+        username      Varchar (55) NOT NULL ,
+        enabled       Bool NOT NULL ,
+        authorityId   Int NOT NULL
+	,CONSTRAINT Users_PK PRIMARY KEY (UserId)
 
-	,CONSTRAINT Users_Authorities_FK FOREIGN KEY (Identifiant_Authorities) REFERENCES Authorities(Identifiant)
+	,CONSTRAINT Users_Authorities_FK FOREIGN KEY (authorityId) REFERENCES Authorities(authorityId)
 )ENGINE=InnoDB;
 
 
@@ -58,15 +58,15 @@ CREATE TABLE Users(
 #------------------------------------------------------------
 
 CREATE TABLE Animaux(
-        Identifiant       Int  Auto_increment  NOT NULL ,
-        Nom               Varchar (50) NOT NULL ,
-        Age               Int NOT NULL ,
-        Espece            Varchar (50) NOT NULL ,
-        Description       Text NOT NULL ,
-        Identifiant_Users Int NOT NULL
-	,CONSTRAINT Animaux_PK PRIMARY KEY (Identifiant)
+        animauxId   Int  Auto_increment  NOT NULL ,
+        nom         Varchar (50) NOT NULL ,
+        age         Int NOT NULL ,
+        espece      Varchar (50) NOT NULL ,
+        description Text NOT NULL ,
+        UserId      Int NOT NULL
+	,CONSTRAINT Animaux_PK PRIMARY KEY (animauxId)
 
-	,CONSTRAINT Animaux_Users_FK FOREIGN KEY (Identifiant_Users) REFERENCES Users(Identifiant)
+	,CONSTRAINT Animaux_Users_FK FOREIGN KEY (UserId) REFERENCES Users(UserId)
 )ENGINE=InnoDB;
 
 
@@ -75,21 +75,21 @@ CREATE TABLE Animaux(
 #------------------------------------------------------------
 
 CREATE TABLE Annonces(
-        Identifiant       Int  Auto_increment  NOT NULL ,
-        DateRedaction     Date NOT NULL ,
-        Titre             Varchar (255) NOT NULL ,
-        Description       Text NOT NULL ,
-        VilleDepart       Varchar (255) NOT NULL ,
-        CPDepart          Int NOT NULL ,
-        DateDepart        Date NOT NULL ,
-        CPArrivee         Int NOT NULL ,
-        VilleArrivee      Varchar (255) NOT NULL ,
-        DateArrivee       Date NOT NULL ,
-        Prix              Float NOT NULL ,
-        Identifiant_Users Int NOT NULL
-	,CONSTRAINT Annonces_PK PRIMARY KEY (Identifiant)
+        annonceID     Int  Auto_increment  NOT NULL ,
+        dateRedaction Date NOT NULL ,
+        titre         Varchar (255) NOT NULL ,
+        description   Text NOT NULL ,
+        villeDepart   Varchar (255) NOT NULL ,
+        CPDepart      Int NOT NULL ,
+        dateDepart    Date NOT NULL ,
+        CPArrivee     Int NOT NULL ,
+        villeArrivee  Varchar (255) NOT NULL ,
+        dateArrivee   Date NOT NULL ,
+        prix          Float NOT NULL ,
+        UserId        Int NOT NULL
+	,CONSTRAINT Annonces_PK PRIMARY KEY (annonceID)
 
-	,CONSTRAINT Annonces_Users_FK FOREIGN KEY (Identifiant_Users) REFERENCES Users(Identifiant)
+	,CONSTRAINT Annonces_Users_FK FOREIGN KEY (UserId) REFERENCES Users(UserId)
 )ENGINE=InnoDB;
 
 
@@ -98,16 +98,16 @@ CREATE TABLE Annonces(
 #------------------------------------------------------------
 
 CREATE TABLE Messages(
-        Identifiant          Int  Auto_increment  NOT NULL ,
-        Titre                Varchar (255) NOT NULL ,
-        Date                 Date NOT NULL ,
-        Contenu              Text NOT NULL ,
-        Identifiant_Annonces Int NOT NULL ,
-        Identifiant_Users    Int NOT NULL
-	,CONSTRAINT Messages_PK PRIMARY KEY (Identifiant)
+        messageId Int  Auto_increment  NOT NULL ,
+        titre     Varchar (255) NOT NULL ,
+        date      Date NOT NULL ,
+        contenu   Text NOT NULL ,
+        annonceID Int NOT NULL ,
+        UserId    Int NOT NULL
+	,CONSTRAINT Messages_PK PRIMARY KEY (messageId)
 
-	,CONSTRAINT Messages_Annonces_FK FOREIGN KEY (Identifiant_Annonces) REFERENCES Annonces(Identifiant)
-	,CONSTRAINT Messages_Users0_FK FOREIGN KEY (Identifiant_Users) REFERENCES Users(Identifiant)
+	,CONSTRAINT Messages_Annonces_FK FOREIGN KEY (annonceID) REFERENCES Annonces(annonceID)
+	,CONSTRAINT Messages_Users0_FK FOREIGN KEY (UserId) REFERENCES Users(UserId)
 )ENGINE=InnoDB;
 
 
@@ -116,14 +116,14 @@ CREATE TABLE Messages(
 #------------------------------------------------------------
 
 CREATE TABLE Reservations(
-        Identifiant          Int  Auto_increment  NOT NULL ,
-        Validee              Bool NOT NULL ,
-        Identifiant_Users    Int NOT NULL ,
-        Identifiant_Annonces Int NOT NULL
-	,CONSTRAINT Reservations_PK PRIMARY KEY (Identifiant)
+        reservationId Int  Auto_increment  NOT NULL ,
+        validee       Bool NOT NULL ,
+        UserId        Int NOT NULL ,
+        annonceID     Int NOT NULL
+	,CONSTRAINT Reservations_PK PRIMARY KEY (reservationId)
 
-	,CONSTRAINT Reservations_Users_FK FOREIGN KEY (Identifiant_Users) REFERENCES Users(Identifiant)
-	,CONSTRAINT Reservations_Annonces0_FK FOREIGN KEY (Identifiant_Annonces) REFERENCES Annonces(Identifiant)
-	,CONSTRAINT Reservations_Annonces_AK UNIQUE (Identifiant_Annonces)
+	,CONSTRAINT Reservations_Users_FK FOREIGN KEY (UserId) REFERENCES Users(UserId)
+	,CONSTRAINT Reservations_Annonces0_FK FOREIGN KEY (annonceID) REFERENCES Annonces(annonceID)
+	,CONSTRAINT Reservations_Annonces_AK UNIQUE (annonceID)
 )ENGINE=InnoDB;
 
