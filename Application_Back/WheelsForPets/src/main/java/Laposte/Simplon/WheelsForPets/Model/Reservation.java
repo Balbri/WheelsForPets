@@ -1,6 +1,9 @@
 package Laposte.Simplon.WheelsForPets.Model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import javax.persistence.*;
+
 
 @Entity
 @Table(name= "reservations")
@@ -13,9 +16,11 @@ public class Reservation {
     private int reservationId;
     private boolean validee;
 
+
     @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "userid")
     private User user;
+
 
 
     @OneToOne(cascade = CascadeType.ALL)
@@ -42,13 +47,7 @@ public class Reservation {
         this.validee = validee;
     }
 
-    public int getReservationId() {
-        return reservationId;
-    }
 
-    public void setReservationId(int reservationId) {
-        this.reservationId = reservationId;
-    }
 
 
 

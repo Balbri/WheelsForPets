@@ -39,6 +39,7 @@ public class UserController {
      */
     @RequestMapping(method = {RequestMethod.GET}, value = "/admin/users", produces = "application/json")
     public ResponseEntity<Collection<User>> getAllUsers(){
+
         return new ResponseEntity<>(userRepo.findAll(), HttpStatus.OK);
     }
 

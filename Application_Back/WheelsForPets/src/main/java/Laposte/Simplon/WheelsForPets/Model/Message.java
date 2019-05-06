@@ -2,6 +2,8 @@ package Laposte.Simplon.WheelsForPets.Model;
 
 
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import javax.persistence.*;
 import java.util.Date;
 
@@ -19,6 +21,7 @@ public class Message {
     @Temporal(TemporalType.DATE)
     private Date date;
 
+    @JsonIgnore
     @ManyToOne
     @JoinColumn(name="annonceid")
     private Annonce annonce;

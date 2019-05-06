@@ -2,6 +2,8 @@ package Laposte.Simplon.WheelsForPets.Model;
 
 
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.Date;
@@ -46,10 +48,11 @@ public class Annonce {
     private Date dateArrivee;
 
     private float prix;
-
+    @JsonIgnore
     @OneToMany(mappedBy = "annonce")
     private List<Message> messageList = new ArrayList<>();
 
+    @JsonIgnore
     @ManyToOne
     @JoinColumn(name = "userid")
     private User user;

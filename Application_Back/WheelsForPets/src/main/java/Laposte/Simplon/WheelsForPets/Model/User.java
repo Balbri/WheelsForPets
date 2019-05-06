@@ -1,5 +1,7 @@
 package Laposte.Simplon.WheelsForPets.Model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.Date;
@@ -30,12 +32,14 @@ public class User {
     private String Username;
     private boolean enabled;
 
+    @JsonIgnore
     @OneToMany(mappedBy = "user")
     private List<Annonce> annonceList = new ArrayList<>();
 
+    @JsonIgnore
     @OneToMany(mappedBy = "user")
     private List<Message> messageList = new ArrayList<>();
-
+    @JsonIgnore
     @OneToMany(mappedBy = "user")
     private List<Animal> animalList = new ArrayList<>();
 
@@ -75,6 +79,7 @@ public class User {
         this.dateNaissance = dateNaissance;
     }
 
+    @JsonIgnore
     public String getPassword() {
         return password;
     }
