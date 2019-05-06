@@ -1,8 +1,6 @@
 package Laposte.Simplon.WheelsForPets.Controller;
 
-import Laposte.Simplon.WheelsForPets.Model.Annonce;
 import Laposte.Simplon.WheelsForPets.Model.Message;
-import Laposte.Simplon.WheelsForPets.Repository.AnnonceRepository;
 import Laposte.Simplon.WheelsForPets.Repository.MessageRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -31,7 +29,7 @@ public class MessageController {
      */
     @RequestMapping(method = {RequestMethod.GET}, value = "/messages", produces = "application/json")
     public ResponseEntity<Collection<Message>> getAllMessages(){
-        return new ResponseEntity<Collection<Message>>(messageRepository.findAll(), HttpStatus.OK);
+        return new ResponseEntity<>(messageRepository.findAll(), HttpStatus.OK);
     }
 
     /*
@@ -59,7 +57,7 @@ public class MessageController {
      */
     @RequestMapping(value = "/annonces/messages/{identifiant}", method = RequestMethod.GET)
     public ResponseEntity<Collection<Message>> getMessageByAnnonceId(@PathVariable int messageId) {
-        return new ResponseEntity<Collection<Message>>(messageRepository.findByIdAnnonce(messageId), HttpStatus.OK);
+        return new ResponseEntity<>(messageRepository.findByIdAnnonce(messageId), HttpStatus.OK);
 
     }
 

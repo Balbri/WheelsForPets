@@ -1,8 +1,6 @@
 package Laposte.Simplon.WheelsForPets.Model;
 
 
-import sun.util.resources.Bundles;
-
 import javax.persistence.*;
 import java.sql.Blob;
 import java.util.Date;

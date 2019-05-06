@@ -8,7 +8,7 @@ public class Reservation {
 
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "reservationid")
     private int reservationId;
     private boolean validee;

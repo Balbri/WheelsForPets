@@ -1,6 +1,5 @@
 package Laposte.Simplon.WheelsForPets.Repository;
 
-import Laposte.Simplon.WheelsForPets.Model.Message;
 import Laposte.Simplon.WheelsForPets.Model.Reservation;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;

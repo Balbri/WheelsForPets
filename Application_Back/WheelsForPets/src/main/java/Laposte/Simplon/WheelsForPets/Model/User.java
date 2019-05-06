@@ -11,7 +11,7 @@ import java.util.List;
 public class User {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "userid")
     private int userId;
     private String nom;
@@ -35,6 +35,9 @@ public class User {
 
     @OneToMany(mappedBy = "user")
     private List<Message> messageList = new ArrayList<>();
+
+    @OneToMany(mappedBy = "user")
+    private List<Animal> animalList = new ArrayList<>();
 
 
     public User() {
@@ -150,5 +153,13 @@ public class User {
 
     public void setAnnonceList(List<Annonce> annonceList) {
         this.annonceList = annonceList;
+    }
+
+    public List<Animal> getAnimalList() {
+        return animalList;
+    }
+
+    public void setAnimalList(List<Animal> animalList) {
+        this.animalList = animalList;
     }
 }

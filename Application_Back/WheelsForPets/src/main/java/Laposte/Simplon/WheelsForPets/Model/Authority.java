@@ -12,7 +12,7 @@ import javax.persistence.Table;
 public class Authority {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "authorityid")
     private int authorityid;
     private String authority;

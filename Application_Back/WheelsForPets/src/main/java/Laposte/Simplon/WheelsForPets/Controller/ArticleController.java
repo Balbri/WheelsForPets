@@ -1,9 +1,7 @@
 package Laposte.Simplon.WheelsForPets.Controller;
 
 import Laposte.Simplon.WheelsForPets.Model.Article;
-import Laposte.Simplon.WheelsForPets.Model.Reservation;
 import Laposte.Simplon.WheelsForPets.Repository.ArticleRepository;
-import Laposte.Simplon.WheelsForPets.Repository.ReservationRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
@@ -30,7 +28,7 @@ public class ArticleController {
      */
     @RequestMapping(method = {RequestMethod.GET}, value = "/articles", produces = "application/json")
     public ResponseEntity<Collection<Article>> getAllArticles(){
-        return new ResponseEntity<Collection<Article>>(articleRepository.findAll(), HttpStatus.OK);
+        return new ResponseEntity<>(articleRepository.findAll(), HttpStatus.OK);
     }
 
 

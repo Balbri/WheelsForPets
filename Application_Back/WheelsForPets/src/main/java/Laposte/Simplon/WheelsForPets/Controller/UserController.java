@@ -3,7 +3,6 @@ package Laposte.Simplon.WheelsForPets.Controller;
 import java.util.Collection;
 import java.util.Optional;
 
-import Laposte.Simplon.WheelsForPets.Model.JsonWebToken;
 import Laposte.Simplon.WheelsForPets.Model.User;
 import Laposte.Simplon.WheelsForPets.Repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -13,7 +12,6 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -41,7 +39,7 @@ public class UserController {
      */
     @RequestMapping(method = {RequestMethod.GET}, value = "/admin/users", produces = "application/json")
     public ResponseEntity<Collection<User>> getAllUsers(){
-        return new ResponseEntity<Collection<User>>(userRepo.findAll(), HttpStatus.OK);
+        return new ResponseEntity<>(userRepo.findAll(), HttpStatus.OK);
     }
 
     /*

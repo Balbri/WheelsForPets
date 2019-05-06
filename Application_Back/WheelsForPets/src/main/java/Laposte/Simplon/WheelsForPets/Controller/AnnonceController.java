@@ -1,9 +1,7 @@
 package Laposte.Simplon.WheelsForPets.Controller;
 
 import Laposte.Simplon.WheelsForPets.Model.Annonce;
-import Laposte.Simplon.WheelsForPets.Model.Reservation;
 import Laposte.Simplon.WheelsForPets.Repository.AnnonceRepository;
-import Laposte.Simplon.WheelsForPets.Repository.ReservationRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
@@ -30,7 +28,7 @@ public class AnnonceController {
      */
     @RequestMapping(method = {RequestMethod.GET}, value = "/annonces", produces = "application/json")
     public ResponseEntity<Collection<Annonce>> getAllAnnonces(){
-        return new ResponseEntity<Collection<Annonce>>(annonceRepository.findAll(), HttpStatus.OK);
+        return new ResponseEntity<>(annonceRepository.findAll(), HttpStatus.OK);
     }
 
 
@@ -40,7 +38,7 @@ public class AnnonceController {
      */
     @RequestMapping(value = "/annonces/{identifiant}", method = RequestMethod.GET)
     public ResponseEntity<?> getAnnonceById(@PathVariable int annonceId){
-        Optional<Annonce> annonce = null;
+        Optional<Annonce> annonce = Optional.empty();
 
         try {
             annonce =(annonceRepository.findById(annonceId));

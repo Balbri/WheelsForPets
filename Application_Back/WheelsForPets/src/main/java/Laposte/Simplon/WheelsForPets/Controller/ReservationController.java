@@ -1,8 +1,6 @@
 package Laposte.Simplon.WheelsForPets.Controller;
 
-import Laposte.Simplon.WheelsForPets.Model.Message;
 import Laposte.Simplon.WheelsForPets.Model.Reservation;
-import Laposte.Simplon.WheelsForPets.Repository.MessageRepository;
 import Laposte.Simplon.WheelsForPets.Repository.ReservationRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -30,7 +28,7 @@ public class ReservationController {
      */
     @RequestMapping(method = {RequestMethod.GET}, value = "/reservations", produces = "application/json")
     public ResponseEntity<Collection<Reservation>> getAllMessages(){
-        return new ResponseEntity<Collection<Reservation>>(reservationRepository.findAll(), HttpStatus.OK);
+        return new ResponseEntity<>(reservationRepository.findAll(), HttpStatus.OK);
     }
 
 
@@ -60,7 +58,7 @@ public class ReservationController {
      */
     @RequestMapping(value = "/annonces/reservations/{identifiant}", method = RequestMethod.GET)
     public ResponseEntity<Collection<Reservation>> getReservationByAnnonceId(@PathVariable int reservationId) {
-        return new ResponseEntity<Collection<Reservation>>(reservationRepository.findByIdAnnonce(reservationId), HttpStatus.OK);
+        return new ResponseEntity<>(reservationRepository.findByIdAnnonce(reservationId), HttpStatus.OK);
 
     }
 
