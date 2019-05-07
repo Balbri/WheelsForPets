@@ -22,7 +22,7 @@ public class Message {
     private Date date;
 
     @JsonIgnore
-    @ManyToOne
+    @ManyToOne(cascade={CascadeType.MERGE}, fetch = FetchType.EAGER)
     @JoinColumn(name="annonceid")
     private Annonce annonce;
 

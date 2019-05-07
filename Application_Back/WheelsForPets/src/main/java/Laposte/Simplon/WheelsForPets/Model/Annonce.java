@@ -48,12 +48,12 @@ public class Annonce {
     private Date dateArrivee;
 
     private float prix;
-    @JsonIgnore
-    @OneToMany(mappedBy = "annonce")
+
+    @OneToMany(mappedBy = "annonce",cascade={CascadeType.REMOVE})
     private List<Message> messageList = new ArrayList<>();
 
-    @JsonIgnore
-    @ManyToOne
+
+    @ManyToOne(cascade={CascadeType.MERGE})
     @JoinColumn(name = "userid")
     private User user;
 

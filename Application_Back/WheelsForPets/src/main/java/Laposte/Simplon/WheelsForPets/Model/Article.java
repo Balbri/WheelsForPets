@@ -20,7 +20,7 @@ public class Article {
 
     private String contenu;
 
-    private Blob visuel;
+    private String visuel;
 
     public Article() {
     }
@@ -57,11 +57,11 @@ public class Article {
         this.contenu = contenu;
     }
 
-    public Blob getVisuel() {
+    public String getVisuel() {
         return visuel;
     }
 
-    public void setVisuel(Blob visuel) {
+    public void setVisuel(String visuel) {
         this.visuel = visuel;
     }
 }

@@ -9,6 +9,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.Collection;
+import java.util.Date;
 import java.util.Optional;
 
 
@@ -28,7 +29,7 @@ public class ArticleController {
      */
     @RequestMapping(method = {RequestMethod.GET}, value = "/articles", produces = "application/json")
     public ResponseEntity<Collection<Article>> getAllArticles(){
-        return new ResponseEntity<>(articleRepository.findAll(), HttpStatus.OK);
+        return new ResponseEntity<Collection<Article>>(articleRepository.findAll(), HttpStatus.OK);
     }
 
 
@@ -36,8 +37,8 @@ public class ArticleController {
     /*
      * Methode get par ID
      */
-    @RequestMapping(value = "/articles/{identifiant}", method = RequestMethod.GET)
-    public ResponseEntity<?> getArticleById(@PathVariable int articleId){
+    @RequestMapping(value = "/articles/{articleId}", method = RequestMethod.GET, produces = "application/json")
+    public ResponseEntity<?> getArticleById(@PathVariable Integer articleId){
         Optional<Article> article = null;
 
         try {
@@ -51,6 +52,7 @@ public class ArticleController {
             return ResponseEntity.status(HttpStatus.NOT_FOUND).body(null);
 
         return ResponseEntity.status(HttpStatus.OK).body(article);
+
     }
 
 
@@ -60,6 +62,7 @@ public class ArticleController {
     @RequestMapping(value = "/articles", method = RequestMethod.POST, produces= "application/json", consumes = MediaType.APPLICATION_JSON_VALUE )
     public ResponseEntity<?> addArticle(@RequestBody Article article){
         Article resultArticle = null;
+        article.setDate(new Date());
         try {
           resultArticle = articleRepository.saveAndFlush(article);
         } catch (Exception e) {
@@ -73,7 +76,7 @@ public class ArticleController {
      * Methode PUT
      */
 
-    @PutMapping(value = "/articles/{identifiant}", produces = MediaType.APPLICATION_JSON_VALUE, consumes = MediaType.APPLICATION_JSON_VALUE)
+    @PutMapping(value = "/articles/{articleId}", produces = MediaType.APPLICATION_JSON_VALUE, consumes = MediaType.APPLICATION_JSON_VALUE)
     @ResponseBody
     public ResponseEntity<?> modifyArticle(@RequestBody Article article) {
         Article articleAmodifier = null;
@@ -89,7 +92,7 @@ public class ArticleController {
     /*
      * Methode DELETE
      */
-    @RequestMapping(value = "/articles/{identifiant}", method = RequestMethod.DELETE)
+    @RequestMapping(value = "/articles/{articleId}", method = RequestMethod.DELETE)
     public ResponseEntity<?> deleteArticle(@PathVariable Integer articleId){
         Article articleAsupprimer = null;
         try {

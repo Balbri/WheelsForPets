@@ -28,7 +28,7 @@ public class ReservationController {
      */
     @RequestMapping(method = {RequestMethod.GET}, value = "/reservations", produces = "application/json")
     public ResponseEntity<Collection<Reservation>> getAllMessages(){
-        return new ResponseEntity<>(reservationRepository.findAll(), HttpStatus.OK);
+        return new ResponseEntity<Collection<Reservation>>(reservationRepository.findAll(), HttpStatus.OK);
     }
 
 
@@ -36,7 +36,7 @@ public class ReservationController {
     /*
      * Methode get par ID
      */
-    @RequestMapping(value = "/reservation/{identifiant}", method = RequestMethod.GET)
+    @RequestMapping(value = "/reservation/{reservationId}", method = RequestMethod.GET)
     public ResponseEntity<?> getReservationById(@PathVariable int reservationId){
         Optional<Reservation> reservation = null;
 
@@ -56,7 +56,7 @@ public class ReservationController {
     /*
      * Methode get par Annonce
      */
-    @RequestMapping(value = "/annonces/reservations/{identifiant}", method = RequestMethod.GET)
+    @RequestMapping(value = "/annonces/reservations/{reservationId}", method = RequestMethod.GET)
     public ResponseEntity<Collection<Reservation>> getReservationByAnnonceId(@PathVariable int reservationId) {
         return new ResponseEntity<>(reservationRepository.findByIdAnnonce(reservationId), HttpStatus.OK);
 
@@ -82,7 +82,7 @@ public class ReservationController {
      * Methode PUT
      */
 
-    @PutMapping(value = "/reservations/{identifiant}", produces = MediaType.APPLICATION_JSON_VALUE, consumes = MediaType.APPLICATION_JSON_VALUE)
+    @PutMapping(value = "/reservations/{reservationId}", produces = MediaType.APPLICATION_JSON_VALUE, consumes = MediaType.APPLICATION_JSON_VALUE)
     @ResponseBody
     public ResponseEntity<?> modifyReservation(@RequestBody Reservation reservation) {
         Reservation reservationAmodifier = null;
@@ -98,7 +98,7 @@ public class ReservationController {
     /*
      * Methode DELETE
      */
-    @RequestMapping(value = "/reservations/{identifiant}", method = RequestMethod.DELETE)
+    @RequestMapping(value = "/reservations/{reservationId}", method = RequestMethod.DELETE)
     public ResponseEntity<?> deleteReservation(@PathVariable Integer reservationId){
         Reservation reservationAsupprimer = null;
         try {

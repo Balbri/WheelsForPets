@@ -33,14 +33,14 @@ public class User {
     private boolean enabled;
 
     @JsonIgnore
-    @OneToMany(mappedBy = "user")
+    @OneToMany(mappedBy = "user",cascade={CascadeType.MERGE, CascadeType.REMOVE})
     private List<Annonce> annonceList = new ArrayList<>();
 
     @JsonIgnore
-    @OneToMany(mappedBy = "user")
+    @OneToMany(mappedBy = "user", cascade={CascadeType.MERGE, CascadeType.REMOVE}, fetch = FetchType.EAGER)
     private List<Message> messageList = new ArrayList<>();
     @JsonIgnore
-    @OneToMany(mappedBy = "user")
+    @OneToMany(mappedBy = "user",cascade={CascadeType.MERGE, CascadeType.REMOVE})
     private List<Animal> animalList = new ArrayList<>();
 
 
@@ -79,13 +79,15 @@ public class User {
         this.dateNaissance = dateNaissance;
     }
 
-    @JsonIgnore
+
+
+
     public String getPassword() {
         return password;
     }
 
     public void setPassword(String password) {
-        password = password;
+        this.password = password;
     }
 
     public int getNumRue() {

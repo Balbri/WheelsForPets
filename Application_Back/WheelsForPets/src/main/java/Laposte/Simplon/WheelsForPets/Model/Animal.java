@@ -20,7 +20,7 @@ public class Animal {
 
     private String description;
 
-    @ManyToOne
+    @ManyToOne(cascade = {CascadeType.MERGE, CascadeType.REMOVE})
     @JoinColumn(name = "userid")
     private User user;
 

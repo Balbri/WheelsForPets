@@ -30,7 +30,7 @@ private AnimalRepository animalRepository;
      */
     @RequestMapping(method = {RequestMethod.GET}, value = "/animaux", produces = "application/json")
     public ResponseEntity<Collection<Animal>> getAllAnimaux(){
-        return new ResponseEntity<>(animalRepository.findAll(), HttpStatus.OK);
+        return new ResponseEntity<Collection<Animal>>(animalRepository.findAll(), HttpStatus.OK);
     }
 
 
@@ -38,7 +38,7 @@ private AnimalRepository animalRepository;
     /*
      * Methode get par ID
      */
-    @RequestMapping(value = "/animal/{identifiant}", method = RequestMethod.GET)
+    @RequestMapping(value = "/animal/{animalId}", method = RequestMethod.GET)
     public ResponseEntity<?> getAnimalById(@PathVariable int animalId){
         Optional<Animal> animal = null;
 
@@ -76,7 +76,7 @@ private AnimalRepository animalRepository;
      * Methode PUT
      */
 
-    @PutMapping(value = "/animaux/{identifiant}", produces = MediaType.APPLICATION_JSON_VALUE, consumes = MediaType.APPLICATION_JSON_VALUE)
+    @PutMapping(value = "/animaux/{animalId}", produces = MediaType.APPLICATION_JSON_VALUE, consumes = MediaType.APPLICATION_JSON_VALUE)
     @ResponseBody
     public ResponseEntity<?> modifyAnimal(@RequestBody Animal animal) {
         Animal animalAmodifier = null;
@@ -92,7 +92,7 @@ private AnimalRepository animalRepository;
     /*
      * Methode DELETE
      */
-    @RequestMapping(value = "/animaux/{identifiant}", method = RequestMethod.DELETE)
+    @RequestMapping(value = "/animaux/{animalId}", method = RequestMethod.DELETE)
     public ResponseEntity<?> deleteAnimal(@PathVariable Integer animalId){
         Animal animalAsupprimer = null;
         try {

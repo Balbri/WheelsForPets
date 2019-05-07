@@ -29,13 +29,13 @@ public class MessageController {
      */
     @RequestMapping(method = {RequestMethod.GET}, value = "/messages", produces = "application/json")
     public ResponseEntity<Collection<Message>> getAllMessages(){
-        return new ResponseEntity<>(messageRepository.findAll(), HttpStatus.OK);
+        return new ResponseEntity<Collection<Message>>(messageRepository.findAll(), HttpStatus.OK);
     }
 
     /*
      * Methode get par ID
      */
-    @RequestMapping(value = "/messages/{identifiant}", method = RequestMethod.GET)
+    @RequestMapping(value = "/messages/{messageId}", method = RequestMethod.GET)
     public ResponseEntity<?> getMessageById(@PathVariable int messageId){
         Optional<Message> message = null;
 
@@ -55,7 +55,7 @@ public class MessageController {
     /*
      * Methode get par Annonce
      */
-    @RequestMapping(value = "/annonces/messages/{identifiant}", method = RequestMethod.GET)
+    @RequestMapping(value = "/annonces/messages/{messageId}", method = RequestMethod.GET)
     public ResponseEntity<Collection<Message>> getMessageByAnnonceId(@PathVariable int messageId) {
         return new ResponseEntity<>(messageRepository.findByIdAnnonce(messageId), HttpStatus.OK);
 
@@ -81,7 +81,7 @@ public class MessageController {
      * Methode PUT
      */
 
-    @PutMapping(value = "/messages/{identifiant}", produces = MediaType.APPLICATION_JSON_VALUE, consumes = MediaType.APPLICATION_JSON_VALUE)
+    @PutMapping(value = "/messages/{messageId}", produces = MediaType.APPLICATION_JSON_VALUE, consumes = MediaType.APPLICATION_JSON_VALUE)
     @ResponseBody
     public ResponseEntity<?> modifyMessage(@RequestBody Message message) {
         Message messageAmodifier = null;
@@ -97,7 +97,7 @@ public class MessageController {
     /*
      * Methode DELETE
      */
-    @RequestMapping(value = "/messages/{identifiant}", method = RequestMethod.DELETE)
+    @RequestMapping(value = "/messages/{messageId}", method = RequestMethod.DELETE)
     public ResponseEntity<?> deleteMessage(@PathVariable Integer messageId){
         Message messageAsupprimer = null;
         try {

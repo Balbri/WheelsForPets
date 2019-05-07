@@ -28,7 +28,7 @@ public class AnnonceController {
      */
     @RequestMapping(method = {RequestMethod.GET}, value = "/annonces", produces = "application/json")
     public ResponseEntity<Collection<Annonce>> getAllAnnonces(){
-        return new ResponseEntity<>(annonceRepository.findAll(), HttpStatus.OK);
+        return new ResponseEntity<Collection<Annonce>>(annonceRepository.findAll(), HttpStatus.OK);
     }
 
 
@@ -36,12 +36,12 @@ public class AnnonceController {
     /*
      * Methode get par ID
      */
-    @RequestMapping(value = "/annonces/{identifiant}", method = RequestMethod.GET)
+    @RequestMapping(value = "/annonces/{annonceId}", method = RequestMethod.GET)
     public ResponseEntity<?> getAnnonceById(@PathVariable int annonceId){
-        Optional<Annonce> annonce = Optional.empty();
+        Optional<Annonce> annonce;
 
         try {
-            annonce =(annonceRepository.findById(annonceId));
+            annonce = annonceRepository.findById(annonceId);
 
         } catch (Exception e) {
             return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(e.getMessage());
@@ -74,7 +74,7 @@ public class AnnonceController {
      * Methode PUT
      */
 
-    @PutMapping(value = "/annonces/{identifiant}", produces = MediaType.APPLICATION_JSON_VALUE, consumes = MediaType.APPLICATION_JSON_VALUE)
+    @PutMapping(value = "/annonces/{annonceId}", produces = MediaType.APPLICATION_JSON_VALUE, consumes = MediaType.APPLICATION_JSON_VALUE)
     @ResponseBody
     public ResponseEntity<?> modifyAnnonce(@RequestBody Annonce annonce) {
         Annonce annonceAmodifier = null;
@@ -90,7 +90,7 @@ public class AnnonceController {
     /*
      * Methode DELETE
      */
-    @RequestMapping(value = "/annonces/{identifiant}", method = RequestMethod.DELETE)
+    @RequestMapping(value = "/annonces/{annonceId}", method = RequestMethod.DELETE)
     public ResponseEntity<?> deleteAnnonce(@PathVariable Integer annonceId){
         Annonce annonceAsupprimer = null;
         try {

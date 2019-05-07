@@ -40,12 +40,10 @@ public class UserController {
     @RequestMapping(method = {RequestMethod.GET}, value = "/admin/users", produces = "application/json")
     public ResponseEntity<Collection<User>> getAllUsers(){
 
-        return new ResponseEntity<>(userRepo.findAll(), HttpStatus.OK);
+        return new ResponseEntity<Collection<User>>(userRepo.findAll(), HttpStatus.OK);
     }
 
-    /*
-     * Methode get par ID
-     */
+
     @RequestMapping(value = "/admin/users/{username}", method = RequestMethod.GET)
     public ResponseEntity<?> getUser(@PathVariable String username){
         Optional<User> user = null;
@@ -86,11 +84,13 @@ public class UserController {
      * Methode PUT
      */
 
-    @PutMapping(value = "/admin/users/{id}", produces = MediaType.APPLICATION_JSON_VALUE, consumes = MediaType.APPLICATION_JSON_VALUE)
+    @PutMapping(value = "/admin/users/{userId}", produces = MediaType.APPLICATION_JSON_VALUE, consumes = MediaType.APPLICATION_JSON_VALUE)
     @ResponseBody
     public ResponseEntity<?> modifyUser(@RequestBody User user) {
         User useramodifier = null;
-        String userPassword = null;
+        String userPassword;
+
+        System.out.println(user.getPassword());
         try {
             userPassword = user.getPassword();
 
@@ -111,12 +111,12 @@ public class UserController {
     /*
      * Methode DELETE
      */
-    @RequestMapping(value = "/admin/users/{id}", method = RequestMethod.DELETE)
-    public ResponseEntity<?> deleteUser(@PathVariable Integer id){
+    @RequestMapping(value = "/admin/users/{userId}", method = RequestMethod.DELETE)
+    public ResponseEntity<?> deleteUser(@PathVariable Integer userId){
         User userToDelete = null;
         try {
-            userToDelete = userRepo.findById(id).get();
-            userRepo.deleteById(id);
+            userToDelete = userRepo.findById(userId).get();
+            userRepo.deleteById(userId);
         } catch (Exception e) {
             return ResponseEntity.status(HttpStatus.NOT_FOUND).body(e.getMessage());
         }
