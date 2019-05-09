@@ -37,7 +37,9 @@ L'objectif de Wheels for Pets est double. A l'échelle globale, il est de propos
 
 ## Règles de gestion:
 
-.Un utilisateur doit pouvoir poster, consulter et souscrire à une annonce. Il possède un ou plusieurs animaux. Il peut lire et poster des messages. Il est pourvu d'un Role utilisateur (son niveau d'accès sur le site).
+.Un visiteur peut consulter les annonces et les messages postés sur ces annonces. Il peut s'inscrire / se connecter sur le site pour effectuer les actions propres aux membres authentifiés.
+
+.Un utilisateur inscrit doit pouvoir poster, consulter et souscrire à une annonce. Il possède peut posséder des animaux. Il peut lire et poster des messages. Il est pourvu d'un Role utilisateur (son niveau d'accès sur le site). Il peut gérer son profil / ses animaux. Pour valider une réservation, il doit aller au bout du tunnel de paiement.
 
 .Une annonce peut contenir des messages. Elle contient aussi un unique emplacement de réservation utilisable par un autre utilisateur.
 
