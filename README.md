@@ -32,7 +32,7 @@ L'objectif de Wheels for Pets est double. A l'échelle globale, il est de propos
 
 ## Maquettes
 
-[Maquette Homepage](https://github.com/Balbri/WheelsForPets/blob/master/Exports/%5BCrea%5DWFP_Home_01.jpg)
+[Maquette Homepage](https://github.com/Balbri/WheelsForPets/blob/master/Exports/%5BCREASITE%5DWFP_Desk_Home_02.jpg)
 
 
 ## Règles de gestion:
