@@ -38,7 +38,7 @@ private AnimalRepository animalRepository;
     /*
      * Methode get par ID
      */
-    @RequestMapping(value = "/animal/{animalId}", method = RequestMethod.GET)
+    @RequestMapping(value = "/animaux/{animalId}", method = RequestMethod.GET)
     public ResponseEntity<?> getAnimalById(@PathVariable int animalId){
         Optional<Animal> animal = null;
 

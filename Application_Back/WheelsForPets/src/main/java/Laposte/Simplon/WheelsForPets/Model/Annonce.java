@@ -49,11 +49,11 @@ public class Annonce {
 
     private float prix;
 
-    @OneToMany(mappedBy = "annonce",cascade={CascadeType.REMOVE})
+    @OneToMany(mappedBy = "annonce",cascade={CascadeType.REMOVE, CascadeType.DETACH})
     private List<Message> messageList = new ArrayList<>();
 
 
-    @ManyToOne(cascade={CascadeType.MERGE})
+    @ManyToOne(cascade={CascadeType.DETACH})
     @JoinColumn(name = "userid")
     private User user;
 

@@ -17,13 +17,13 @@ public class Reservation {
     private boolean validee;
 
 
-    @OneToOne(cascade = CascadeType.MERGE)
+    @OneToOne(cascade = CascadeType.DETACH)
     @JoinColumn(name = "userid")
     private User user;
 
 
 
-    @OneToOne(cascade = CascadeType.MERGE)
+    @OneToOne(cascade = CascadeType.DETACH)
     @JoinColumn(name = "annonceid")
     private Annonce annonce;
 

@@ -27,7 +27,7 @@ public class Message {
     private Annonce annonce;
 
 
-    @ManyToOne
+    @ManyToOne(cascade = CascadeType.DETACH)
     @JoinColumn(name="userid")
     private User user;
 

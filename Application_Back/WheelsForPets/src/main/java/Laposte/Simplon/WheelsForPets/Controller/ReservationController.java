@@ -36,7 +36,7 @@ public class ReservationController {
     /*
      * Methode get par ID
      */
-    @RequestMapping(value = "/reservation/{reservationId}", method = RequestMethod.GET)
+    @RequestMapping(value = "/reservations/{reservationId}", method = RequestMethod.GET)
     public ResponseEntity<?> getReservationById(@PathVariable int reservationId){
         Optional<Reservation> reservation = null;
 
