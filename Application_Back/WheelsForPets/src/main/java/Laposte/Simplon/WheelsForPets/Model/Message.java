@@ -21,8 +21,8 @@ public class Message {
     @Temporal(TemporalType.DATE)
     private Date date;
 
-    @JsonIgnore
-    @ManyToOne(cascade={CascadeType.MERGE}, fetch = FetchType.EAGER)
+
+    @ManyToOne(cascade={CascadeType.DETACH}, fetch = FetchType.EAGER)
     @JoinColumn(name="annonceid")
     private Annonce annonce;
 

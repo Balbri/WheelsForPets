@@ -1,9 +1,7 @@
 package Laposte.Simplon.WheelsForPets.Controller;
 
 import Laposte.Simplon.WheelsForPets.Model.Animal;
-import Laposte.Simplon.WheelsForPets.Model.Reservation;
 import Laposte.Simplon.WheelsForPets.Repository.AnimalRepository;
-import Laposte.Simplon.WheelsForPets.Repository.ReservationRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;

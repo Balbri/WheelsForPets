@@ -13,7 +13,7 @@ import java.util.Optional;
 public interface AnnonceRepository extends JpaRepository<Annonce, Integer>{
 
     @Query(value = "SELECT * FROM annonces WHERE annonces.titre like ?1", nativeQuery = true)
-    Optional<Annonce> findByUsername(String username);
+    Optional<Annonce> findByTitre(String titre);
 
     @Query(value = "SELECT * FROM annonces ORDER BY annonces.DateRedaction DESC LIMIT 3", nativeQuery = true)
     Collection<Annonce> getLast3Annonces();

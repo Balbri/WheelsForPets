@@ -23,6 +23,9 @@ public class AnnonceController {
     private AnnonceRepository annonceRepository;
 
 
+
+
+
     /*
      * Methode Get All
      */
@@ -31,6 +34,14 @@ public class AnnonceController {
         return new ResponseEntity<Collection<Annonce>>(annonceRepository.findAll(), HttpStatus.OK);
     }
 
+
+    /*
+     * Methode Get Last3
+     */
+    @RequestMapping(method = {RequestMethod.GET}, value = "/annonces/dernieres", produces = "application/json")
+    public ResponseEntity<Collection<Annonce>> getLast3(){
+        return new ResponseEntity<Collection<Annonce>>(annonceRepository.getLast3Annonces(), HttpStatus.OK);
+    }
 
 
     /*

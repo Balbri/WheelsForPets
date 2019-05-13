@@ -1,8 +1,7 @@
 package Laposte.Simplon.WheelsForPets.Model;
 
 
-
-import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 import javax.persistence.*;
 import java.util.ArrayList;
@@ -11,6 +10,7 @@ import java.util.List;
 
 @Entity
 @Table(name = "annonces")
+@JsonIgnoreProperties("messageList")
 public class Annonce {
 
     @Id
@@ -48,17 +48,19 @@ public class Annonce {
     private Date dateArrivee;
 
     private float prix;
+    private boolean validee;
 
     @OneToMany(mappedBy = "annonce",cascade={CascadeType.REMOVE, CascadeType.DETACH})
     private List<Message> messageList = new ArrayList<>();
 
 
-    @ManyToOne(cascade={CascadeType.DETACH})
+    @ManyToOne(cascade = {CascadeType.DETACH} )
     @JoinColumn(name = "userid")
     private User user;
 
-
-
+    @OneToOne(cascade = CascadeType.DETACH )
+    @JoinColumn(name = "acheteur")
+    private User acheteur;
 
 
 
@@ -66,6 +68,23 @@ public class Annonce {
     public Annonce() {
     }
 
+    public Annonce(int annonceId, Date dateRedaction, String titre, String description, String villeDepart, int cpDepart, Date dateDepart, String villeArrivee, int cpArrivee, Date dateArrivee, float prix, boolean validee) {
+        this.annonceId = annonceId;
+        this.dateRedaction = dateRedaction;
+        this.titre = titre;
+        this.description = description;
+        this.villeDepart = villeDepart;
+        this.cpDepart = cpDepart;
+        this.dateDepart = dateDepart;
+        this.villeArrivee = villeArrivee;
+        this.cpArrivee = cpArrivee;
+        this.dateArrivee = dateArrivee;
+        this.prix = prix;
+        this.validee = validee;
+        this.messageList = messageList;
+        this.user = user;
+        this.acheteur = acheteur;
+    }
 
     public Date getDateRedaction() {
         return dateRedaction;
@@ -171,5 +190,19 @@ public class Annonce {
         this.user = user;
     }
 
+    public boolean isValidee() {
+        return validee;
+    }
 
+    public void setValidee(boolean validee) {
+        this.validee = validee;
+    }
+
+    public User getAcheteur() {
+        return acheteur;
+    }
+
+    public void setAcheteur(User acheteur) {
+        this.acheteur = acheteur;
+    }
 }
