@@ -19,6 +19,8 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.Optional;
 
+import static org.mockito.ArgumentMatchers.any;
+import static org.springframework.test.web.servlet.result.MockMvcResultHandlers.print;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.jsonPath;
 import static org.mockito.Mockito.when;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
@@ -41,7 +43,7 @@ public class AnnonceControllerTest {
     MessageController messageController;
     @MockBean
     ArticleController articleController;
-    @Mock
+    @MockBean
     AnnonceRepository annonceRepository;
 
 
@@ -63,11 +65,28 @@ public class AnnonceControllerTest {
 
     @Test public void getById() throws Exception{
 
-        when(this.annonceRepository.findById(10)).thenReturn(Optional.of(new Annonce(10, new Date("2018-12-12"), "titre test", "description test", "houilles", 78800, new Date("2019-12-12"), "Paris", 75000, new Date("2019-13-12"), 25, true)));
+        when(this.annonceRepository.findById(10)).thenReturn(Optional.of(new Annonce(10, new Date() ,
+                "titre test", "description test", "houilles", 78800, new Date(),
+                "Paris", 75000, new Date(), 25, true)));
 
         this.mockMVC.perform(get("/api/annonces/10")).andExpect(status().isOk())
-                .andExpect(jsonPath("annonceid").value("10"))
-                .andExpect(jsonPath("dateredaction").value("2018-12-12")) ;
+                .andExpect(jsonPath("annonceId").value(10))
+                .andExpect(jsonPath("dateRedaction").value("2018-12-12"))
+                .andExpect((jsonPath("titre").value("titre test")))
+                .andExpect(jsonPath("description").value("description test"))
+                .andExpect(jsonPath("villeDepart").value("houilles"))
+                .andExpect(jsonPath("cdpDepart").value(78800))
+                .andExpect(jsonPath("dateDepart").value("2019-12-12"))
+                .andExpect(jsonPath("villeArrivee").value("Paris"))
+                .andExpect(jsonPath("cpArrivee").value(75000))
+                .andExpect(jsonPath("dateArrivee").value("2019-13-12"))
+                .andExpect(jsonPath("prix").value(25))
+                .andExpect(jsonPath("validee").value(true))
+
+                .andDo(print());
+System.out.println(mockMVC);
+
+
 
     }
 }

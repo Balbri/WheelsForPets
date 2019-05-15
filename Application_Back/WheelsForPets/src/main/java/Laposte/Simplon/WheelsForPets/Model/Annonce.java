@@ -68,6 +68,8 @@ public class Annonce {
     public Annonce() {
     }
 
+
+
     public Annonce(int annonceId, Date dateRedaction, String titre, String description, String villeDepart, int cpDepart, Date dateDepart, String villeArrivee, int cpArrivee, Date dateArrivee, float prix, boolean validee) {
         this.annonceId = annonceId;
         this.dateRedaction = dateRedaction;
@@ -81,9 +83,7 @@ public class Annonce {
         this.dateArrivee = dateArrivee;
         this.prix = prix;
         this.validee = validee;
-        this.messageList = messageList;
-        this.user = user;
-        this.acheteur = acheteur;
+
     }
 
     public Date getDateRedaction() {

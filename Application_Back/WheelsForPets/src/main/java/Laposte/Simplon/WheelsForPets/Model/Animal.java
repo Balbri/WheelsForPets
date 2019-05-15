@@ -9,8 +9,8 @@ public class Animal {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "animauxid")
-    private int animauxId;
+    @Column(name = "animalid")
+    private int animalId;
 
     private String nom;
 
@@ -28,12 +28,12 @@ public class Animal {
     public Animal() {
     }
 
-    public int getAnimauxId() {
-        return animauxId;
+    public int getAnimalId() {
+        return animalId;
     }
 
-    public void setAnimauxId(int animauxId) {
-        this.animauxId = animauxId;
+    public void setAnimalId(int animalId) {
+        this.animalId = animalId;
     }
 
     public String getNom() {

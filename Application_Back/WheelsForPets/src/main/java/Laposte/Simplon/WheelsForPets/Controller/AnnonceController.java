@@ -9,6 +9,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.Collection;
+import java.util.Date;
 import java.util.Optional;
 
 
@@ -47,7 +48,7 @@ public class AnnonceController {
     /*
      * Methode get par ID
      */
-    @RequestMapping(value = "/annonces/{annonceId}", method = RequestMethod.GET)
+    @RequestMapping(value = "/annonces/{annonceId}", method = RequestMethod.GET, produces = "application/json")
     public ResponseEntity<?> getAnnonceById(@PathVariable int annonceId){
         Optional<Annonce> annonce;
 
@@ -72,6 +73,7 @@ public class AnnonceController {
     @RequestMapping(value = "/annonces", method = RequestMethod.POST, produces= "application/json", consumes = MediaType.APPLICATION_JSON_VALUE )
     public ResponseEntity<?> addAnnonce(@RequestBody Annonce annonce){
         Annonce resultAnnonce = null;
+        annonce.setDateRedaction(new Date());
         try {
           resultAnnonce = annonceRepository.saveAndFlush(annonce);
         } catch (Exception e) {
