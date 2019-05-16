@@ -1,0 +1,44 @@
+.container-cartes {
+
+    text-align: center;
+}
+
+.carte-annonce {
+    font-family: Poppins !important;
+    min-width: 352px;
+    min-height: 312px;
+    margin: 20px;
+    
+    display: inline-block;
+    border-style: hidden;
+    border-radius: 26px;
+    box-shadow: none;
+}
+
+.prix {
+   
+}
+
+.titreLivre {
+   
+}
+
+.prixOccas {
+    text-decoration: line-through;
+    color: #CCC;
+}
+
+a:hover {
+    background-color: #333;
+}
+
+.couverture {
+    width: 155px;
+    height: auto;
+    border-radius: 3px;
+}
+
+.mat-raised-button {
+    margin-left: 10px !important;
+    margin-right: 10px !important;
+}

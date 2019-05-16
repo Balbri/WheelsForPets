@@ -1,27 +1,16 @@
+<div class=container-cartes>
+  <mat-card class="carte-annonce" *ngFor="let annonce of annonceList | async">
+    <a routerLink="/annoncedetail/{{annonce.annonceId}}">
 
- 
-  <div >
-    <p>blabla</p>
-    <mat-card *ngFor="let annonce of annonceList | async">
-        <a routerLink="/annoncedetail/{{annonce.annonceId}}">
-         
-          <h4 class="titreAnnonce">Id de l'annonce {{ annonce.annonceId }}</h4>
-          
-            <div>{{ annonce.prix | number:'1.2-2'}} €</div>
-            <div >{{ annonce.description }} </div>
-          
-      </a>
-    </mat-card>
-  </div> 
+      <div class="textes-carte">
+        <p>{{ annonce.villeDepart }} </p>
+        <p>{{ annonce.villeArrivee }} </p>
+      </div>
 
+      <div>{{ annonce.prix | number:'1.2-2'}} €</div>
 
-<p>
-  homepage works!
-</p>
+      <div> {{ annonce.user.prenom}}</div>
 
-
-<li>
-  <ul *ngFor="let annonce of annoncesList">
-    <p>l'id de l'annonce est: {{annonce.annonceId}}</p>
-  </ul>
-</li>
+    </a>
+  </mat-card>
+</div>
