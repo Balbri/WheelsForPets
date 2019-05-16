@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Annonce } from '../Models/Annonce';
+import { User } from '../Models/User';
+import { BehaviorSubject } from 'rxjs';
+import { AnnonceService } from '../Services/AnnonceService';
 
 @Component({
   selector: 'app-homepage',
@@ -10,9 +13,19 @@ export class HomepageComponent implements OnInit {
 
 
   annonce : Annonce;
-  constructor() { }
+  redacteurs : User[];
+
+  annoncesDispo: BehaviorSubject<Annonce[]>;
+
+  constructor(private annonceService: AnnonceService) { }
 
   ngOnInit() {
+    this.annoncesDispo = this.annonceService.annoncesDispo$;
+    this.getRedacteur;
+  }
+
+  getRedacteur() {
+    this.annonceService.getUsers().subscribe(redacteur => this.redacteurs = redacteur);
   }
 
 }
