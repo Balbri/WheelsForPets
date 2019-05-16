@@ -29,7 +29,14 @@ import { Animal } from '../Models/Animal';
         return this.httpClient.get<Animal[]>('http://localhost:8080/api/animaux');
       }
 
-    
+      private get3Annonces(): Observable<Annonce[]> {
+        return this.httpClient.get<Annonce[]>('http://localhost:8080/api/annonces/dernieres');
+      }
+
+    private getAnnonces(): Observable<Annonce[]> {
+        return this.httpClient.get<Annonce[]>('http://localhost:8080/api/annonces')
+    }
+
     
     public publishLastAnnonces() {
         this.get3Annonces().subscribe(
@@ -40,15 +47,17 @@ import { Animal } from '../Models/Animal';
         );
       }
 
-
-    private get3Annonces(): Observable<Annonce[]> {
-        return this.httpClient.get<Annonce[]>('http://localhost:8080/api/annonces/dernieres');
+      public publishAnnonces() {
+        this.getAnnonces().subscribe(
+          annoncesList => {
+            this.annoncesDispo = annoncesList;
+            this.annoncesDispo$.next(this.annoncesDispo);
+          }
+        );
       }
 
-    private getAnnonces(): Observable<Annonce[]> {
-        return this.httpClient.get<Annonce[]>('http://localhost:8080/api/annonces')
-    }
-
+   
+   
 
 
 

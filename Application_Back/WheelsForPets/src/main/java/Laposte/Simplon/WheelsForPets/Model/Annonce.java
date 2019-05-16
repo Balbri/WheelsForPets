@@ -55,7 +55,7 @@ public class Annonce {
 
 
     @ManyToOne(cascade = {CascadeType.DETACH} )
-    @JoinColumn(name = "userid")
+    @JoinColumn(name = "redacteur")
     private User user;
 
     @OneToOne(cascade = CascadeType.DETACH )

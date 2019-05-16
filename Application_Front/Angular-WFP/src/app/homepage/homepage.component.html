@@ -1,10 +1,11 @@
 
  
-  <div class="center wrap">
-    <mat-card *ngFor="let annonce of annoncesDispo | async">
-        <a routerLink="/detail/{{annonce.annonceId}}">
+  <div >
+    <p>blabla</p>
+    <mat-card *ngFor="let annonce of annonceList | async">
+        <a routerLink="/annoncedetail/{{annonce.annonceId}}">
          
-          <h4 class="titreAnnonce">{{ annonce.titre }}</h4>
+          <h4 class="titreAnnonce">Id de l'annonce {{ annonce.annonceId }}</h4>
           
             <div>{{ annonce.prix | number:'1.2-2'}} €</div>
             <div >{{ annonce.description }} </div>
@@ -17,3 +18,10 @@
 <p>
   homepage works!
 </p>
+
+
+<li>
+  <ul *ngFor="let annonce of annoncesList">
+    <p>l'id de l'annonce est: {{annonce.annonceId}}</p>
+  </ul>
+</li>
