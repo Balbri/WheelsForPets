@@ -1,3 +1,8 @@
+<div id = "disclaimer">
+  <p class= "contenu-utile">La première plateforme dédiée au <span class ="bold">transport d'animaux de compagnie</span></p>
+</div>
+
+
 <div class=container-cartes>
   <mat-card class="carte-annonce" *ngFor="let annonce of annonceList | async">
     <a routerLink="/annoncedetail/{{annonce.annonceId}}">

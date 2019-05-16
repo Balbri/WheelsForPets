@@ -1,4 +1,18 @@
 /* You can add global styles to this file, and also import other style files */
-@import '@angular/material/prebuilt-themes/deeppurple-amber.css'
+@import '@angular/material/prebuilt-themes/deeppurple-amber.css';
+@import url('https://fonts.googleapis.com/css?family=Poppins');
 
+*{
+    font-family: Poppins;
+    margin: 0;
+    padding: 0;
+}
 
+.contenu-utile {
+    padding-left: 10%;
+    padding-right: 10%;
+}
+
+.bold {
+    font-weight: bold;
+}
