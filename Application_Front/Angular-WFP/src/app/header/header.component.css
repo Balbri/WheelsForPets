@@ -1,5 +1,17 @@
 .header{
 height: 90px;
 width: 100%;
-background-color:grey;
+background-color:white;
 }
+
+ul li {list-style: none;display: inline;text-transform: uppercase;padding-left: 50px;}
+#header_right {padding-top: 30px;}
+
+a, a:link {color:#353535;font-weight: bold;text-decoration: none;}
+a:hover, a:active {color:white;text-decoration: underline;}
+
+ul li#subscribe_home, ul li#login_home {padding:0px;}
+#subscribe_home, #login_home {background-color:#6740F4;padding: 36px 26px;width: "300px"; height: 100%;}
+a#subscribe_home , a:link#subscribe_home, a#login_home, a:link#login_home {color: white; }
+
+#login_home {background-color:#35DB80;}
