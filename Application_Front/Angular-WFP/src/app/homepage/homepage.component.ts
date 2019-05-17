@@ -24,7 +24,7 @@ export class HomepageComponent implements OnInit {
   ngOnInit() {
     this.annonceList = this.annonceService.annoncesDispo$;
     this.getRedacteur;
-    console.log(this.annonceList)
+    console.log(this.annonceList);
   }
 
   getRedacteur() {
@@ -33,6 +33,6 @@ export class HomepageComponent implements OnInit {
 
 
   getAcheteur() {
-    this.annonceService.getUsers().subscribe(acheteur => this.acheteurs = acheteur)
+    this.annonceService.getUsers().subscribe(acheteur => this.acheteurs = acheteur);
   }
 }

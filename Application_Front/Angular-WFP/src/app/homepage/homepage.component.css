@@ -13,9 +13,13 @@
 
 .container-cartes {
     width: 100%;
-    height: 100%;
-    background-image: "/assets/BG-chien.jpg";
+    height: 579px;
+    background-image: url("/assets/bg-chat@2x.png");
+    background-repeat: no-repeat;
+    background-color: #e5e9eb;
     text-align: center;
+    object-fit: contain;
+    
 }
 
 .carte-annonce {
@@ -28,32 +32,39 @@
     border-style: hidden;
     border-radius: 26px;
     box-shadow: none;
+    text-align: left;
+    
 }
 
-.prix {
-   
+.lieux-carte {
+    font-size: 14px;
+    color: #35db80;
+    text-transform: uppercase;
+    text-decoration: none;
+    margin-top: 43px;
+    margin-left: 37px;
 }
 
-.titreLivre {
-   
+.carte-annonce a {
+    text-decoration: none;
 }
 
-.prixOccas {
-    text-decoration: line-through;
-    color: #CCC;
+.prix-carte {
+    font-size: 22px;
+    color: #6740f4;
+    text-decoration: none;
+    margin-left: 37px;
 }
 
-a:hover {
-    background-color: #333;
+.redacteur-carte {
+    color: #353535;
+    margin-left: 37px;
+    font-style: italic;
 }
 
-.couverture {
-    width: 155px;
-    height: auto;
-    border-radius: 3px;
-}
-
-.mat-raised-button {
-    margin-left: 10px !important;
-    margin-right: 10px !important;
+#titre-dernieres-annonces{
+    padding-top:60px;
+    color: #353535;
+    font-size: 18px;
+    
 }

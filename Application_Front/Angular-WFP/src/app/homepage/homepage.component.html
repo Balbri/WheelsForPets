@@ -4,17 +4,19 @@
 
 
 <div class=container-cartes>
+
+<p class = "majuscule" id= "titre-dernieres-annonces">nos derniers <span class = "bold">covoiturages</span></p>
+
   <mat-card class="carte-annonce" *ngFor="let annonce of annonceList | async">
     <a routerLink="/annoncedetail/{{annonce.annonceId}}">
 
-      <div class="textes-carte">
-        <p>{{ annonce.villeDepart }} </p>
-        <p>{{ annonce.villeArrivee }} </p>
+      <div class="lieux-carte">
+        <p class = "bold">{{ annonce.villeDepart }}, ({{annonce.cpDepart}}) </p>
+        <p class = "bold">{{ annonce.villeArrivee }}, ({{annonce.cpArrivee}}) </p>
       </div>
 
-      <div>{{ annonce.prix | number:'1.2-2'}} €</div>
-
-      <div> {{ annonce.user.prenom}}</div>
+      <div class = "bold prix-carte">{{ annonce.prix | number:'1.2-2'}} €</div>
+      <div class = "bold redacteur-carte" > {{ annonce.user.prenom}}</div>
 
     </a>
   </mat-card>
