@@ -12,6 +12,7 @@ import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
 import { ListeAnnoncesComponent } from './liste-annonces/liste-annonces.component';
 import { PageAnnonceComponent } from './page-annonce/page-annonce.component';
+import { MessagesDeLannonceComponent } from './messages-de-lannonce/messages-de-lannonce.component';
 
 @NgModule({
   declarations: [
@@ -21,6 +22,7 @@ import { PageAnnonceComponent } from './page-annonce/page-annonce.component';
     FooterComponent,
     ListeAnnoncesComponent,
     PageAnnonceComponent,
+    MessagesDeLannonceComponent,
     
   ],
   imports: [

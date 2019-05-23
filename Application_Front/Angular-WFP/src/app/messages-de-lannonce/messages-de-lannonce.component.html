@@ -1,0 +1,10 @@
+
+<div>
+  <H4>Discutez de l'annonce entre-vous</H4>
+    <mat-card class="carte-annonce" *ngFor="let message of linkedMessagesList | async">
+            <p class = bold>{{ message.titre }} </p>
+            <p> {{ message.date}}</p>
+            <p class>{{ message.contenu }} </p> 
+            <p> {{message.user.username}}</p>
+    </mat-card>
+  </div>

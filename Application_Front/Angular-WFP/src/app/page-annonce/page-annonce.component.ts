@@ -10,13 +10,9 @@ import { AnnonceService } from '../Services/AnnonceService';
 })
 export class PageAnnonceComponent implements OnInit {
 
+  
   id: number;
   annonceAffichee: Annonce;
-  
-  
-
-  
- 
 
   constructor(
     private route: ActivatedRoute,
@@ -26,7 +22,8 @@ export class PageAnnonceComponent implements OnInit {
   ngOnInit() {
     this.id = +this.route.snapshot.params.id;
     this.getAnnonceById(this.id);
-  
+    
+    console.log ("dans Page Annonce, l'id que je cherche à passer est" + this.id)
   }
 
   

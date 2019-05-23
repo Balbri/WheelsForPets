@@ -12,7 +12,7 @@ import { AnnonceService } from '../Services/AnnonceService';
 export class ListeAnnoncesComponent implements OnInit {
 
   annonces: Annonce[];
-  annonce : Annonce;
+  
   allAnnoncesList: BehaviorSubject<Annonce[]>;
 
   constructor(

@@ -11,7 +11,7 @@ import java.util.Collection;
 @Repository
 public interface MessageRepository extends JpaRepository<Message, Integer>{
 
-    @Query(value = "SELECT * FROM messages WHERE (Identifiant_Annonces = ?1)", nativeQuery = true)
+    @Query(value = "SELECT * FROM messages WHERE (annonceId = ?1)", nativeQuery = true)
     Collection<Message>findByIdAnnonce(int identifiant);
 
 }

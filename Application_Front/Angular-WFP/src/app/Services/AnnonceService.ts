@@ -11,7 +11,7 @@ import { map } from 'rxjs/operators';
     providedIn: 'root'
   })
   export class AnnonceService {
-
+    private anId: number;
     private allAnnoncesDispo: Annonce[];
     allAnnoncesDispo$: BehaviorSubject<Annonce[]> = new BehaviorSubject(this.allAnnoncesDispo);
     private annoncesDispo: Annonce[];
@@ -25,7 +25,7 @@ import { map } from 'rxjs/operators';
       }
     
     getMessages(): Observable<Message[]> {
-        return this.httpClient.get<Message[]>('http://localhost:8080/api/messages');
+        return this.httpClient.get<Message[]>('http://localhost:8080/api/annonces/messages/'+this.anId);
       }
 
     getAnimaux(): Observable<Animal[]> {
@@ -68,6 +68,7 @@ import { map } from 'rxjs/operators';
   public findAnnonce(annonceId: number): Observable<Annonce> {
     if (annonceId) {
       if (!this.allAnnoncesDispo) {
+        this.anId = annonceId;
         return this.getAnnonces().pipe(map(annonces => annonces.find(annonce => annonce.annonceId === annonceId)));
       }
       return of(this.annoncesDispo.find(annonce => annonce.annonceId === annonceId));
@@ -76,6 +77,10 @@ import { map } from 'rxjs/operators';
     }
   }
 
+
+
+
+  
 
 
 
