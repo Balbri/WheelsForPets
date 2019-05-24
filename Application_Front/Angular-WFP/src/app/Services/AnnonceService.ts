@@ -6,6 +6,7 @@ import { User } from '../Models/User';
 import { Message } from '@angular/compiler/src/i18n/i18n_ast';
 import { Animal } from '../Models/Animal';
 import { map } from 'rxjs/operators';
+import { MatSnackBar } from '@angular/material';
 
 @Injectable({
     providedIn: 'root'
@@ -17,7 +18,8 @@ import { map } from 'rxjs/operators';
     private annoncesDispo: Annonce[];
     annoncesDispo$: BehaviorSubject<Annonce[]> = new BehaviorSubject(this.annoncesDispo);
 
-    constructor(private httpClient: HttpClient){}
+    constructor(private httpClient: HttpClient, 
+      private snackBar: MatSnackBar){}
 
 
     getUsers(): Observable<User[]> {
@@ -80,7 +82,26 @@ import { map } from 'rxjs/operators';
 
 
 
-  
+   /**
+   * Fonction de création d'une nouvelle Annonce
+   * Elle met à jour notre liste d'annonces et notre liste observable.
+   * @param nouvelleAnnonce la nouvelle annonce à créer.
+   */
+  public createAnnonce(nouvelleAnnonce: Annonce) {
+    this.httpClient.post<Annonce>('http://localhost:8080/api/annonces', nouvelleAnnonce).subscribe(
+      nouvelleAnnonce => {
+        this.allAnnoncesDispo.push(nouvelleAnnonce);
+        this.allAnnoncesDispo$.next(this.allAnnoncesDispo);
+      },
+      error => {
+        // popu-up erreur
+        this.snackBar.open("L\'annonce n'a pas pu être créée", 'ERREUR', {
+          duration: 2000,
+        });
+      }
+    );
+  }
+
 
 
 

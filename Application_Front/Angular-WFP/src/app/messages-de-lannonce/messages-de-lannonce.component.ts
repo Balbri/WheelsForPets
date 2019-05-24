@@ -3,6 +3,7 @@ import { Message } from '../Models/Message';
 import { MessageService } from '../Services/MessagesService';
 import { ActivatedRoute, Router } from '@angular/router';
 import { BehaviorSubject } from 'rxjs';
+import { findIndex } from 'rxjs/operators';
 
 @Component({
   selector: 'app-messages-de-lannonce',
@@ -14,7 +15,7 @@ export class MessagesDeLannonceComponent implements OnInit {
 
   id : number;
   linkedMessagesList: BehaviorSubject<Message[]>;
-
+  
   constructor(
     private messageService: MessageService,
     private route: ActivatedRoute,
