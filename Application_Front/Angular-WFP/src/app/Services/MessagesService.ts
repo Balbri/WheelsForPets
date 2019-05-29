@@ -32,12 +32,12 @@ import { MatSnackBar } from '@angular/material';
       }
 
          /**
-   * Fonction de création d'une nouvelle Annonce
-   * Elle met à jour notre liste d'annonces et notre liste observable.
-   * @param nveauMessage la nouvelle annonce à créer.
+   * Fonction de création d'un nouveau message
+   * Elle met à jour notre liste de messages et notre liste observable.
+   * @param nveauMessage le nouveau message à créer.
    */
   public createMessage(nveauMessage: Message) {
-    this.httpClient.post<Message>('http://localhost:8080/api/annonces/messages/', nveauMessage).subscribe(
+    this.httpClient.post<Message>('http://localhost:8080/api/messages/', nveauMessage).subscribe(
       nveauMessage => {
         this.linkedMessages.push(nveauMessage);
         this.linkedMessages$.next(this.linkedMessages);

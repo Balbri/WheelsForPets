@@ -17,7 +17,8 @@ import { MatSnackBar } from '@angular/material';
     allAnnoncesDispo$: BehaviorSubject<Annonce[]> = new BehaviorSubject(this.allAnnoncesDispo);
     private annoncesDispo: Annonce[];
     annoncesDispo$: BehaviorSubject<Annonce[]> = new BehaviorSubject(this.annoncesDispo);
-
+    private selectedAnnonce: Annonce;
+    selectedAnnonce$: BehaviorSubject<Annonce> = new BehaviorSubject(this.selectedAnnonce);
     constructor(private httpClient: HttpClient, 
       private snackBar: MatSnackBar){}
 
@@ -42,7 +43,19 @@ import { MatSnackBar } from '@angular/material';
         return this.httpClient.get<Annonce[]>('http://localhost:8080/api/annonces')
     }
 
+    private getAnnonce(anId): Observable<Annonce> {
+      return this.httpClient.get<Annonce>('http://localhost:8080/api/annonces'+ this.anId)
+    }
     
+     public publishSelectedAnnonces(id:number) {
+      this.getAnnonce(this.anId).subscribe(
+        annonce => {
+          this.selectedAnnonce = annonce;
+          this.selectedAnnonce$.next(this.selectedAnnonce);
+        }
+      );
+    }
+
     public publishLastAnnonces() {
         this.get3Annonces().subscribe(
           annoncesList => {

@@ -1,7 +1,7 @@
-<div>
+<div class= "contenu">
 <h3>{{ annonceAffichee?.titre }}</h3>
-<p>{{annonceAffichee?.redacteur}}</p>
-<p>{{annonceAffichee?.prix}}</p>
+<p>{{annonceAffichee?.redacteur?.nom}}</p>
+<p>Prix fixé par{{annonceAffichee?.redacteur?.nom}}: {{annonceAffichee?.prix}} €</p>
 <p>{{annonceAffichee?.cpDepart}}</p>
 <p>{{annonceAffichee?.villeDepart}}</p>
 <p>{{annonceAffichee?.dateDepart}}</p>

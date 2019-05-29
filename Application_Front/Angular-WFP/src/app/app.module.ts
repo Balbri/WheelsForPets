@@ -14,6 +14,7 @@ import { ListeAnnoncesComponent } from './liste-annonces/liste-annonces.componen
 import { PageAnnonceComponent } from './page-annonce/page-annonce.component';
 import { MessagesDeLannonceComponent } from './messages-de-lannonce/messages-de-lannonce.component';
 import { AjoutMessageComponent } from './ajout-message/ajout-message.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -33,7 +34,9 @@ import { AjoutMessageComponent } from './ajout-message/ajout-message.component';
     BrowserAnimationsModule,
     MaterialModule,
     RouterModule,   
-    HttpClientModule
+    HttpClientModule,
+    FormsModule,
+    ReactiveFormsModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
