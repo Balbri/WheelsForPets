@@ -1,14 +1,11 @@
 package Laposte.Simplon.WheelsForPets.ControllerTests;
 
 
-import Laposte.Simplon.WheelsForPets.Controller.*;
+import Laposte.Simplon.WheelsForPets.Controller.AnnonceController;
 import Laposte.Simplon.WheelsForPets.Model.Annonce;
-import Laposte.Simplon.WheelsForPets.Model.Message;
-import Laposte.Simplon.WheelsForPets.Model.User;
-import Laposte.Simplon.WheelsForPets.Repository.*;
+import Laposte.Simplon.WheelsForPets.Repository.AnnonceRepository;
 import org.junit.Test;
 import org.junit.runner.RunWith;
-import org.mockito.Mock;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
 import org.springframework.boot.test.mock.mockito.MockBean;
@@ -19,30 +16,20 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.Optional;
 
-import static org.mockito.ArgumentMatchers.any;
-import static org.springframework.test.web.servlet.result.MockMvcResultHandlers.print;
-import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.jsonPath;
 import static org.mockito.Mockito.when;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
+import static org.springframework.test.web.servlet.result.MockMvcResultHandlers.print;
+import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.jsonPath;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
 @RunWith(SpringRunner.class)
 @WebMvcTest
 public class AnnonceControllerTest {
 
-    @Autowired
+    @Autowired(required=true)
     MockMvc mockMVC;
 
-    @MockBean
-    AnimalController animalController;
-    @MockBean
-    UserController userController;
-    @MockBean
-    AnnonceController annonceController;
-    @MockBean
-    MessageController messageController;
-    @MockBean
-    ArticleController articleController;
+
     @MockBean
     AnnonceRepository annonceRepository;
 

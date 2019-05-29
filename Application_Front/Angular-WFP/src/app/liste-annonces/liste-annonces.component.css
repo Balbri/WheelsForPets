@@ -1,16 +1,3 @@
-#disclaimer {
-    height:80px;
-    background-color: rgb(53, 53, 53);
-    color: white;
-    vertical-align: middle;
-    
-
-}
-
-#disclaimer p{
-    padding-top: 26px;
-}
-
 .container-cartes {
     width: 100%;
     height: 579px;
@@ -60,11 +47,4 @@
     color: #353535;
     margin-left: 37px;
     font-style: italic;
-}
-
-#titre-dernieres-annonces{
-    padding-top:60px;
-    color: #353535;
-    font-size: 18px;
-    
 }

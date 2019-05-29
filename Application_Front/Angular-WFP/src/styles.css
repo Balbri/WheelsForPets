@@ -13,6 +13,11 @@
     padding-right: 10%;
 }
 
-.bold {
-    font-weight: bold;
-}
+.clear {clear: both;}
+.left {float: left;}
+.right {float: right;}
+.bold {font-weight: bold;}
+.italic {font-style: italic;}
+.majuscule {text-transform: uppercase;}
+.text-align-left {text-align: left;}
+.text-align-right {text-align: right;}

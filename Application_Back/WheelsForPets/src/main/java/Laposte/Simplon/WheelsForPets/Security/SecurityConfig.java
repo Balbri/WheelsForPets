@@ -36,13 +36,15 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .logout()
                 .logoutUrl("/logout")
                 .logoutSuccessHandler(new AuthentificationLogoutSuccessHandler())
-                .invalidateHttpSession(true)
-                .and()
-                .authorizeRequests()
+                .invalidateHttpSession(true);
+
+        http.authorizeRequests()
+                .antMatchers("/**").permitAll()
                 .antMatchers("/login").permitAll()
                 .antMatchers("/logout").permitAll()
                 .antMatchers("/user").authenticated()
                 .anyRequest().permitAll();
+
     }
     private class AuthentificationLoginSuccessHandler extends SimpleUrlAuthenticationSuccessHandler {
         @Override
