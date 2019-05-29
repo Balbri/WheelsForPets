@@ -21,3 +21,11 @@
 .majuscule {text-transform: uppercase;}
 .text-align-left {text-align: left;}
 .text-align-right {text-align: right;}
+
+@media screen and (max-width: 1320px) {
+    .contenu-utile {
+        padding-left: 0%;
+        padding-right: 0%;
+    }
+  }
+  

@@ -1,4 +1,4 @@
-.header{
+/*.header{
 height: 90px;
 width: 100%;
 background-color:white;
@@ -15,4 +15,79 @@ ul li#subscribe_home, ul li#login_home {padding:0px;}
 #subscribe_home, #login_home {background-color:#6740F4;padding: 36px 26px;height: 100%;}
 a#subscribe_home , a:link#subscribe_home, a#login_home, a:link#login_home {color: white; }
 
-#login_home {background-color:#35DB80;}
+#login_home {background-color:#35DB80;}*/
+
+/* CSS Document */
+
+.header{
+height: 90px;
+width: 100%;
+background-color:white;
+}
+
+#logo {float: left;}
+#logo img {max-width:100%;padding-top: 15px;}
+nav {width: 100%; background-color:#FFF;}
+.menu-mobile {display: none;}
+.clear{clear: both;}
+
+/*Styling des listes*/
+
+nav li {list-style-type: none;}
+nav ul {margin: 0;padding: 0;float:right;}
+nav ul::after {clear: both;display: table;content: ""}
+nav ul li {float: left;padding: 30px 20px}
+
+/*Styling des liens généraux*/
+
+nav a {display: inline-block;text-decoration: none;}
+nav > ul > li > a, a:link {text-transform: uppercase;}
+
+/*Styling des liens spécifiques*/
+
+nav li.menu-connexion a, nav li.menu-connexion a:link, nav li.menu-inscription a, nav li.menu-inscription a {color: #FFF;}
+nav li.menu-connexion a:hover,nav li.menu-inscription a:hover {font-weight: bold;}
+nav li.menu-icon a, nav li.menu-icon a:link {color:#3B3B3B;}
+
+/*Styling des arrière-plans de liens spécifiques*/
+
+nav li img {padding-right:10px;vertical-align: middle;}
+nav li img {padding-right:10px;vertical-align: middle;}
+
+nav li img.menu-rechercher:hover {fill:#26CD22}
+nav li img {padding-right:10px;vertical-align: middle;}
+
+nav li.menu-connexion {background-color: #35db80;}
+nav li.menu-connexion:hover {background-color:#05aa62;}
+nav li.menu-inscription {background-color: #6740f4;}
+nav li.menu-inscription:hover {background-color:#5433c9;}
+nav li.menu-icon:hover  {border-bottom: 6px solid #D3D3D3;padding-bottom: 24px;}
+
+/*Styling des checkbox*/
+nav input[type=checkbox]{display: none;}
+nav input[type=checkbox]:checked ~ ul {display: block;}
+
+/*Responsive*/
+
+
+@media screen and (max-width: 1320px) {
+  .menu-mobile {
+   display:block;
+	text-align: right;
+	  padding: 20px;
+	  background-color:#FFF;
+	  color:#353535;
+	  text-transform: uppercase;
+	  font-weight: bold;
+  }
+  #logo img {max-width:80%;padding-left: 10%}
+  #logo label {padding: 0; margin: 0;}
+    nav ul {display: none;float: none;}
+	nav ul li, nav ul li a {width: 100%}
+	nav li.menu-icon {background-color:#EDEDED;}
+	nav li.menu-icon:hover {background-color:#C7C7C7;}
+	nav ul li.menu-proposer  {border-top: solid 1px #C7C7C7;}
+	nav li.menu-icon:hover  {border-bottom: 6px solid #C7C7C7;padding-bottom: 24px;}
+}
+
+
