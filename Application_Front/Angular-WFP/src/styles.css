@@ -8,9 +8,14 @@
     padding: 0;
 }
 
-.contenu-utile {
+.contenu-utile, .contenu-utile-menu {
     padding-left: 10%;
     padding-right: 10%;
+}
+
+.contenu-utile-int {
+    padding-left: 12%;
+    padding-right: 12%;
 }
 
 .clear {clear: both;}
@@ -24,14 +29,17 @@
 .text-align-left {text-align: left;}
 .text-align-right {text-align: right;}
 .bg-vert {background-color: #35db80;}
-.text-vert {color: #35db80;}
 .bg-violet {background-color: #6740f4;}
+.bg-blanc {background-color: #FFF;}
 .text-violet {color: #6740f4;}
+.text-vert {color: #35db80;}
 .text-blanc {color: #FFF;}
+.text-gris {color:#353535;}
+
+
 p.text-intro {font-family: Poppins;
     font-size: 16px;
     line-height: 1.25;
-    text-align: left;
     color: #6e6e6e;
     padding-bottom:10px;}
 
@@ -39,7 +47,6 @@ p {
     font-family: Poppins;
     font-size: 14px;
     line-height: 1.43;
-    text-align: left;
     color: #6e6e6e;
     padding-bottom:10px;
   }
@@ -48,12 +55,12 @@ h3 {font-family: Poppins;
     font-size: 18px;
     font-weight: 600;
     text-transform: uppercase;
-    text-align: left;
     color: #353535;
     padding:60px 0 20px 0;
 }
 
-.button {width: 222px;
+.button {
+    width: 222px;
     height: 32px;
     border-radius: 19.5px;
     display: inline-block;
@@ -61,17 +68,21 @@ h3 {font-family: Poppins;
     font-size: 16px;
     font-weight: bold;
     text-align: center;
-    color: #ffffff;
     text-transform: uppercase;
     text-decoration:none;
     margin-top:20px;}
 
-.button:hover {background-color: #353535;filter: opacity(0.9);}
+.button:hover {background-color: #353535;color:#FFF;filter: opacity(0.9);}
       
 @media screen and (max-width: 1320px) {
-    .contenu-utile {
+    .contenu-utile-menu {
         padding-left: 0%;
         padding-right: 0%;
+    }
+
+    .contenu-utile,  .contenu-utile-int {
+        padding-left: 2%;
+        padding-right: 2%;
     }
   }
   

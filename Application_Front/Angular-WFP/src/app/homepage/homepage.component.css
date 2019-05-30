@@ -29,10 +29,17 @@
     display: inline;
     float: left;
 }
-
-#section-asso-pro ul li {float: left;display: inline-block;}
-#section-asso {width: 50%;position:absolute;}
-#section-pro {width: 50%;float: right;position: relative;}
+#section-asso { 
+    width:50%;
+    float:left; 
+    display: inline-block;
+    background-color: #6740f4;}
+#section-pro {    
+    width:50%;
+    display:inline-block;
+    background-color:#35db80;}
+#section-pro .button {float: right}
+#section-asso .contenu-utile-int, #section-pro .contenu-utile-int {padding-bottom: 60px;}
 
 #container-cartes {
     width: 100%;
@@ -45,7 +52,6 @@
 }
 
 .carte-annonce {
-    
     min-width: 352px;
     min-height: 312px;
     margin: 20px;
@@ -86,6 +92,12 @@
 #titre-dernieres-annonces{
     padding-top:60px;
     color: #353535;
-    font-size: 18px;
-    
+    font-size: 18px;   
 }
+
+
+@media screen and (max-width: 1320px) {
+    #section-asso, #section-pro { 
+        width:100%;}
+  }
+  
