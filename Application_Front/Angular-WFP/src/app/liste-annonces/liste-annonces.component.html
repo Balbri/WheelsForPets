@@ -5,16 +5,13 @@
 <div>
 <mat-card class="carte-annonce" *ngFor="let annonce of allAnnoncesList | async">
     <a routerLink="/annonce/{{annonce.annonceId}}">// TODO
-
       <div class="lieux-carte">
         <p class = "bold">{{ annonce.villeDepart }}, ({{annonce.cpDepart}}) </p>
         <p class = "bold">{{ annonce.villeArrivee }}, ({{annonce.cpArrivee}}) </p>
       </div>
-
       <div class = "bold prix-carte">{{ annonce.prix | number:'1.2-2'}} €</div>
       <div class = "bold redacteur-carte" > {{ annonce.user.prenom}}</div>
-      
-    </a>
+      </a>
   </mat-card>
 </div>
 
