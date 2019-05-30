@@ -17,6 +17,6 @@ export class Annonce {
 		public validee: boolean,
 		public dateModif: Date,
 		public messageList: Message[],
-        public redacteur: User,
+        public user: User,
         public acheteur: User) {}
 }
