@@ -16,7 +16,7 @@ import { Annonce } from '../Models/Annonce';
   styleUrls: ['./messages-de-lannonce.component.css'],
   
 })
-export class MessagesDeLannonceComponent implements OnInit, OnChanges {
+export class MessagesDeLannonceComponent implements OnInit {
 
   id : number;
   linkedMessagesList: BehaviorSubject<Message[]>;
@@ -35,9 +35,7 @@ export class MessagesDeLannonceComponent implements OnInit, OnChanges {
     private route: ActivatedRoute,
     private formBuilder: FormBuilder,
     private annonceService : AnnonceService,
-    
-   
-    ) {this.annonce = this.annonceAffichee}
+   ) {}
 
   ngOnInit() {
     this.id = +this.route.snapshot.params.id;
@@ -46,11 +44,7 @@ export class MessagesDeLannonceComponent implements OnInit, OnChanges {
     this.messageService.publishLinkedMessages(this.id);
     this.initialized = true
     this.initForm();
-    
-   
-    
-    
-  }
+    }
   
   initForm() {
     this.messageForm = this.formBuilder.group({
@@ -60,10 +54,7 @@ export class MessagesDeLannonceComponent implements OnInit, OnChanges {
   }
 
   onSave() {
-    
-  
-    
-    const formValue = this.messageForm.value;
+      const formValue = this.messageForm.value;
     const newMessage = new Message(
       this.idDefault = 0,
       formValue['titreMessage'],
@@ -71,14 +62,10 @@ export class MessagesDeLannonceComponent implements OnInit, OnChanges {
       new Date(),
      this.annonce,
      this.annonce.user,
-      
     );
     console.log("lannonce est " + this.annonce );
     console.log("l'utilisateur de l'annonce est " +this.user);
-    
-      this.messageService.createMessage(newMessage);
-  
-    
+    this.messageService.createMessage(newMessage);
   }
 
   getAnnonceById(id: number): void {
