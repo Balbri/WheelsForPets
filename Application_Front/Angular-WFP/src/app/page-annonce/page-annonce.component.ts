@@ -22,13 +22,12 @@ export class PageAnnonceComponent implements OnInit {
   ngOnInit() {
     this.id = +this.route.snapshot.params.id;
     this.getAnnonceById(this.id);
-    
-    console.log (this.annonceAffichee.redacteur)
+    console.log(this.annonceAffichee)
   }
 
   
 
   getAnnonceById(id: number): void {
-    this.annonceService.findAnnonce(id).subscribe(annonce => this.annonceAffichee = annonce, redacteur => this.annonceAffichee.redacteur = redacteur);
+    this.annonceService.findAnnonce(id).subscribe(annonce => this.annonceAffichee = annonce);
   }
 }
