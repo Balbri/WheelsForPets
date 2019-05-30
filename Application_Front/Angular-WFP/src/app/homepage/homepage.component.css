@@ -54,12 +54,12 @@
 
 #section-visuel-app img {vertical-align: bottom;}
 #section-text-app {padding-top:70px;}
-#section-app-logo img {float:right;padding-right:6%;}
+#section-app-logo img {float:right;padding-right:10%;}
 #section-app-telechargement {
     float: right;
     clear: right;
     padding-top: 20px;
-    padding-right: 6%;}
+    padding-right:10%;}
 #section-app-telechargement ul li {display: inline;margin-left: 15px;}
 
 #container-cartes {
