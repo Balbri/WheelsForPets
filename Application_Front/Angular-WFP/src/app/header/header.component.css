@@ -40,7 +40,7 @@ nav li.menu-connexion {background-color: #35db80;}
 nav li.menu-connexion:hover {background-color:#05aa62;}
 nav li.menu-inscription {background-color: #6740f4;}
 nav li.menu-inscription:hover {background-color:#5433c9;}
-nav li.menu-icon:hover  {border-bottom: 6px solid #D3D3D3;padding-bottom: 24px;}
+nav li.menu-icon:hover  {border-bottom: 6px solid #35db80;padding-bottom: 24px;}
 
 /*Styling des checkbox*/
 nav input[type=checkbox]{display: none;}
@@ -65,7 +65,7 @@ nav input[type=checkbox]:checked ~ ul {display: block;}
   nav ul {display: none;float: none;}
 	nav ul li, nav ul li a {width: 100%}
 	nav li.menu-icon {background-color:#EDEDED;}
-	nav li.menu-icon:hover {background-color:#C7C7C7;}
+
 	nav ul li.menu-proposer  {border-top: solid 1px #C7C7C7;}
 	nav li.menu-icon:hover  {border-bottom: 6px solid #C7C7C7;padding-bottom: 24px;}
 }
