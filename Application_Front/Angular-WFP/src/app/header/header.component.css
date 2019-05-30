@@ -50,7 +50,12 @@ nav input[type=checkbox]:checked ~ ul {display: block;}
 
 /* Ici on va traiter le Responsive*/
 
-@media screen and (max-width: 1320px) {
+@media screen and (max-width: 1322px) {
+	#logo img {padding-left: 10%}
+  }
+  
+
+@media screen and (max-width: 1080px) {
   .menu-mobile {
    display:block;
 	text-align: right;
