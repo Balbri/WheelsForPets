@@ -1,23 +1,64 @@
-<div id = "disclaimer">
-  <p class= "contenu-utile">La première plateforme dédiée au <span class ="bold"git stat>transport d'animaux de compagnie</span></p>
+<div id="disclaimer" class="contenu-utile">
+  <p class="text-blanc">La première plateforme dédiée au <span class="bold" git stat>transport d'animaux de
+      compagnie</span></p>
 </div>
-<nav>
-<a routerLink='/annonces' >Toutes les annonces</a></nav>
-<div class=container-cartes>
 
-<p class = "majuscule" id= "titre-dernieres-annonces">nos derniers <span class = "bold">covoiturages</span></p>
+<div id="section-search" class="contenu-utile">
+  <h3 class="text-center">votre <span class="big-title">recherche</span></h3>
+</div>
 
+<div id="section-presentation" class="contenu-utile">
+  <img src="assets/wfp_visual_presentation.png" />
+  <div id="bloc-texte">
+    <h3><img src="/assets/wfp-logo-titre.png" alt="C'est quoi Wheels For Pets ?" /></h3>
+    <p class="text-intro">Déplacer son animal dans de bonnes conditions peut être un véritable parcours du combattant :
+      pas de moyens de locomotion, pas assez de place... les raisons sont multiples.</p>
+    <p>WheelsForPets proposent aux particuliers et aux associations de se mettre en relation avec d'autres particuliers
+      pouvant véhiculer des animaux, ou avec des professionnels du transports. </p>
+    <a href="#" class="button bg-vert">En savoir plus</a>
+    <div class="clear"></div>
+  </div>
+</div>
+
+<div id="section-asso-pro" class="contenu-utile">
+  <ul>
+    <li>
+      <div id="section-asso">
+        <h3>vous êtes <span class="big-title">une association ?</span></h3>
+        <p class="text-intro">Déplacer son animal dans de bonnes conditions peut être un véritable parcours du
+          combattant :
+          pas de moyens de locomotion, pas assez de place... les raisons sont multiples.</p>
+        <p>WheelsForPets proposent aux particuliers et aux associations de se mettre en relation avec d'autres
+          particuliers
+          pouvant véhiculer des animaux, ou avec des professionnels du transports. </p>
+        <a href="#" class="button bg-vert">En savoir plus</a>
+      </div>
+    </li>
+    <li>
+      <div id="section-pro">
+        <h3>vous êtes <span class="big-title">un professionnel ?</span></h3>
+        <p class="text-intro">Déplacer son animal dans de bonnes conditions peut être un véritable parcours du
+          combattant :
+          pas de moyens de locomotion, pas assez de place... les raisons sont multiples.</p>
+        <p>WheelsForPets proposent aux particuliers et aux associations de se mettre en relation avec d'autres
+          particuliers
+          pouvant véhiculer des animaux, ou avec des professionnels du transports. </p>
+        <a href="#" class="button bg-vert">En savoir plus</a>
+      </div>
+    </li>
+  </ul>
+  <div class="clear"></div>
+</div>
+<div id=container-cartes>
+  <h3 id="titre-dernieres-annonces" class="text-center">nos derniers <span class="big-title">covoiturages</span></h3>
   <mat-card class="carte-annonce" *ngFor="let annonce of annonceList | async">
     <a routerLink="/annonce/{{annonce.annonceId}}">// TODO
-
       <div class="lieux-carte">
-        <p class = "bold">{{ annonce.villeDepart }}, ({{annonce.cpDepart}}) </p>
-        <p class = "bold">{{ annonce.villeArrivee }}, ({{annonce.cpArrivee}}) </p>
+        <p class="bold">{{ annonce.villeDepart }}, ({{annonce.cpDepart}}) </p>
+        <p class="bold">{{ annonce.villeArrivee }}, ({{annonce.cpArrivee}}) </p>
       </div>
-
-      <div class = "bold prix-carte">{{ annonce.prix | number:'1.2-2'}} €</div>
-      <div class = "bold redacteur-carte" > {{ annonce.user.prenom}}</div>
-      
+      <div class="bold prix-carte">{{ annonce.prix | number:'1.2-2'}} €</div>
+      <div class="bold redacteur-carte"> {{ annonce.user.prenom}}</div>
     </a>
   </mat-card>
 </div>

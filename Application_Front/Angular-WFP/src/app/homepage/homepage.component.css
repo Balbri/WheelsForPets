@@ -3,23 +3,45 @@
     background-color: rgb(53, 53, 53);
     color: white;
     vertical-align: middle;
-    
-
 }
 
 #disclaimer p{
     padding-top: 26px;
 }
 
-.container-cartes {
-    width: 100%;
-    height: 579px;
-    background-image: url("/assets/bg-chat.png");
+#section-search {
+    height: 525px;
+    background-image: url("/assets/bg-search.png");
     background-repeat: no-repeat;
     background-color: #e5e9eb;
     text-align: center;
     object-fit: contain;
-    
+}
+
+#section-presentation > img {float: left;margin-right:70px;padding:60px 0;vertical-align: middle;}
+
+#bloc-texte {
+    padding-right:60px;
+    max-width: 1200px;
+}
+
+#bloc-texte ul li {
+    display: inline;
+    float: left;
+}
+
+#section-asso-pro ul li {float: left;display: inline-block;}
+#section-asso {width: 50%;position:absolute;}
+#section-pro {width: 50%;float: right;position: relative;}
+
+#container-cartes {
+    width: 100%;
+    height: 579px;
+    background-image: url("/assets/bg-cartes.png");
+    background-repeat: no-repeat;
+    background-color: #e5e9eb;
+    text-align: center;
+    object-fit: contain; 
 }
 
 .carte-annonce {
@@ -27,7 +49,6 @@
     min-width: 352px;
     min-height: 312px;
     margin: 20px;
-    
     display: inline-block;
     border-style: hidden;
     border-radius: 26px;

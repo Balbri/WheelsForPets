@@ -1,6 +1,6 @@
 /* You can add global styles to this file, and also import other style files */
 @import '@angular/material/prebuilt-themes/deeppurple-amber.css';
-@import url('https://fonts.googleapis.com/css?family=Poppins');
+@import url('https://fonts.googleapis.com/css?family=Poppins:400,400i,600,600i,700,700i,800,800i&display=swap');
 
 *{
     font-family: Poppins;
@@ -16,12 +16,58 @@
 .clear {clear: both;}
 .left {float: left;}
 .right {float: right;}
-.bold {font-weight: bold;}
+.big-title {font-size: 22px;font-weight:700;}
+.bold {font-weight:700;}
 .italic {font-style: italic;}
+.text-center {text-align: center;}
 .majuscule {text-transform: uppercase;}
 .text-align-left {text-align: left;}
 .text-align-right {text-align: right;}
+.bg-vert {background-color: #35db80;}
+.text-vert {color: #35db80;}
+.bg-violet {background-color: #6740f4;}
+.text-violet {color: #6740f4;}
+.text-blanc {color: #FFF;}
+p.text-intro {font-family: Poppins;
+    font-size: 16px;
+    line-height: 1.25;
+    text-align: left;
+    color: #6e6e6e;
+    padding-bottom:10px;}
 
+p { 
+    font-family: Poppins;
+    font-size: 14px;
+    line-height: 1.43;
+    text-align: left;
+    color: #6e6e6e;
+    padding-bottom:10px;
+  }
+
+h3 {font-family: Poppins;
+    font-size: 18px;
+    font-weight: 600;
+    text-transform: uppercase;
+    text-align: left;
+    color: #353535;
+    padding:60px 0 20px 0;
+}
+
+.button {width: 222px;
+    height: 32px;
+    border-radius: 19.5px;
+    display: inline-block;
+    padding: 8px 0 0;
+    font-size: 16px;
+    font-weight: bold;
+    text-align: center;
+    color: #ffffff;
+    text-transform: uppercase;
+    text-decoration:none;
+    margin-top:20px;}
+
+.button:hover {background-color: #353535;filter: opacity(0.9);}
+      
 @media screen and (max-width: 1320px) {
     .contenu-utile {
         padding-left: 0%;
