@@ -9,8 +9,8 @@ import org.springframework.web.bind.annotation.CrossOrigin;
 import java.util.Collection;
 
 
-@Repository
-@CrossOrigin(origins = "*")
+
+
 public interface MessageRepository extends JpaRepository<Message, Integer>{
 
     @Query(value = "SELECT * FROM messages WHERE (annonceId = ?1)", nativeQuery = true)

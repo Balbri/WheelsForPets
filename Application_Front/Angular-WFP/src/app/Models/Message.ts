@@ -7,6 +7,6 @@ export class Message {
         public titre: string,
         public contenu: string,
         public date: Date,
-        public annonceId: Annonce,
-        public userId: User) {}
+        public annonce: Annonce,
+        public user: User) {}
 }

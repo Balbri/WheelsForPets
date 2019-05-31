@@ -6,7 +6,6 @@ import { BehaviorSubject } from 'rxjs';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 import { AnnonceService } from '../Services/AnnonceService';
-import { User } from '../Models/User';
 import { Annonce } from '../Models/Annonce';
 
 
@@ -25,8 +24,6 @@ export class MessagesDeLannonceComponent implements OnInit {
   idDefault= null;
   titreInit = '';
   contenuInit = '';
-  annonce;
-  user;
   initialized = false;
   
   
@@ -44,6 +41,7 @@ export class MessagesDeLannonceComponent implements OnInit {
     this.messageService.publishLinkedMessages(this.id);
     this.initialized = true
     this.initForm();
+    console.log(this.annonceAffichee)
     }
   
   initForm() {
@@ -60,11 +58,10 @@ export class MessagesDeLannonceComponent implements OnInit {
       formValue['titreMessage'],
       formValue['contenuMessage'],
       new Date(),
-     this.annonce,
-     this.annonce.user,
+     this.annonceAffichee,
+     this.annonceAffichee.user,
     );
-    console.log("lannonce est " + this.annonce );
-    console.log("l'utilisateur de l'annonce est " +this.user);
+    console.log(newMessage);
     this.messageService.createMessage(newMessage);
   }
 

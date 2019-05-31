@@ -73,8 +73,9 @@ public class MessageController {
         } catch (Exception e) {
             return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(e.getMessage());
         }
-
+        System.out.println(resultMessage);
         return ResponseEntity.status(HttpStatus.CREATED).body(resultMessage);
+
     }
 
     /*

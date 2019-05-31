@@ -15,8 +15,8 @@ import { MatSnackBar } from '@angular/material';
     private linkedMessages: Message[]= [];
     linkedMessages$: BehaviorSubject<Message[]> = new BehaviorSubject(this.linkedMessages);
    
-    constructor(private httpClient: HttpClient,
-      private snackBar: MatSnackBar){}
+    constructor(private httpClient: HttpClient
+      ){}
 
       public publishLinkedMessages(id: number) {
         this.getMessages(id).subscribe(
@@ -36,18 +36,21 @@ import { MatSnackBar } from '@angular/material';
    * Elle met à jour notre liste de messages et notre liste observable.
    * @param nveauMessage le nouveau message à créer.
    */
-  public createMessage(nveauMessage: Message) {
-    this.httpClient.post<Message>('http://localhost:8080/api/messages/', nveauMessage).subscribe(
-      nveauMessage => {
-        this.linkedMessages.push(nveauMessage);
+  public createMessage(nouveauMessage: Message) {
+    console.log(">>>>>>>>>")
+    console.log(nouveauMessage.annonce)
+    this.httpClient.post<Message>('http://localhost:8080/api/messages/', nouveauMessage).subscribe(
+      message => {
+        this.linkedMessages.push(message);
         this.linkedMessages$.next(this.linkedMessages);
+        console.log(message)
       },
-      error => {
+      /*error => {
         // popu-up erreur
         this.snackBar.open("Une erreur a empêché la création du message", 'ERREUR', {
           duration: 2000,
         });
-      }
+      }*/
     );
   }
 
