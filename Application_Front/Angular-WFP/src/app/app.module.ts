@@ -15,6 +15,9 @@ import { PageAnnonceComponent } from './page-annonce/page-annonce.component';
 import { MessagesDeLannonceComponent } from './messages-de-lannonce/messages-de-lannonce.component';
 
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { AjoutAnnonceComponent } from './ajout-annonce/ajout-annonce.component';
+import { MentionsLegalesComponent } from './mentions-legales/mentions-legales.component';
+import { MatDatepickerModule, MatNativeDateModule } from '@angular/material';
 
 @NgModule({
   declarations: [
@@ -25,6 +28,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     ListeAnnoncesComponent,
     PageAnnonceComponent,
     MessagesDeLannonceComponent,
+    AjoutAnnonceComponent,
+    MentionsLegalesComponent,
     
     
   ],
@@ -37,7 +42,16 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     HttpClientModule,
     FormsModule,
     ReactiveFormsModule,
+    MatDatepickerModule, 
+    MatNativeDateModule,
   ],
+
+  exports: [
+    MatDatepickerModule, 
+    MatNativeDateModule,
+  ],
+
+
   providers: [],
   bootstrap: [AppComponent]
 })

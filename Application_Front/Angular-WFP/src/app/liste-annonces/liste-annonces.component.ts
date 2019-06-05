@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import { Annonce } from '../Models/Annonce';
 import { BehaviorSubject } from 'rxjs';
 import { AnnonceService } from '../Services/AnnonceService';
@@ -9,7 +9,7 @@ import { AnnonceService } from '../Services/AnnonceService';
   templateUrl: './liste-annonces.component.html',
   styleUrls: ['./liste-annonces.component.css']
 })
-export class ListeAnnoncesComponent implements OnInit {
+export class ListeAnnoncesComponent implements OnInit, OnDestroy {
 
   annonces: Annonce[];
   
@@ -21,5 +21,9 @@ export class ListeAnnoncesComponent implements OnInit {
 
   ngOnInit() {
       this.allAnnoncesList = this.annonceService.allAnnoncesDispo$;
+  }
+
+  ngOnDestroy() {
+    this.allAnnoncesList = null;
   }
 }

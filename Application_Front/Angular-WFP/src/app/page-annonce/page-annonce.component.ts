@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import { Annonce } from '../Models/Annonce';
 import { ActivatedRoute, Router } from '@angular/router';
 import { AnnonceService } from '../Services/AnnonceService';
@@ -8,7 +8,7 @@ import { AnnonceService } from '../Services/AnnonceService';
   templateUrl: './page-annonce.component.html',
   styleUrls: ['./page-annonce.component.css']
 })
-export class PageAnnonceComponent implements OnInit {
+export class PageAnnonceComponent implements OnInit, OnDestroy {
 
   
   id: number;
@@ -25,7 +25,9 @@ export class PageAnnonceComponent implements OnInit {
     console.log(this.annonceAffichee)
   }
 
-  
+  ngOnDestroy(){
+    this.annonceAffichee = null;
+  }
 
   getAnnonceById(id: number): void {
     this.annonceService.findAnnonce(id).subscribe(annonce => this.annonceAffichee = annonce);

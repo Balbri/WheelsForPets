@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import { Annonce } from '../Models/Annonce';
 import { BehaviorSubject } from 'rxjs';
 import { AnnonceService } from '../Services/AnnonceService';
@@ -9,7 +9,7 @@ import { Router } from '@angular/router';
   templateUrl: './homepage.component.html',
   styleUrls: ['./homepage.component.css']
 })
-export class HomepageComponent implements OnInit {
+export class HomepageComponent implements OnInit, OnDestroy {
 
 
   annonce : Annonce;
@@ -22,5 +22,8 @@ export class HomepageComponent implements OnInit {
     this.annonceList = this.annonceService.annoncesDispo$;
   }
 
+  ngOnDestroy() {
+    this.annonceList = null;
+  }
  
 }

@@ -62,11 +62,30 @@ annonceid, DateRedaction, Titre, Description, CPDepart, CPArrivee, DateDepart, D
 INSERT INTO annonces (
 annonceid, DateRedaction, Titre, Description, CPDepart, CPArrivee, DateDepart, DateArrivee, VilleDepart, VilleArrivee, validee, Prix, acheteur,  redacteur
 ) VALUES (
-0 , DATE '2019-03-11', "Sortie en forêt dans le 78", "Je pars pour une après midi en forêt de Saint Germain le 4 Mai et j'ai une place pour n'importe quel animal", 92100, 78200, DATE '2019-05-04', DATE '2019-05-04', "Nanterre", "Saint Germain en Laye",false, 10,1, 3
+0 , DATE '2019-03-11', "Sortie en forêt dans le 78", "Je pars pour une après midi en forêt de Saint Germain le 4 Mai et j'ai une place pour n'importe quel animal", 92100, 78200, DATE '2019-05-04', DATE '2019-05-04', "Nanterre", "Saint Germain en Laye",true, 10,1, 3
 );
+
+INSERT INTO annonces (
+annonceid, DateRedaction, Titre, Description, CPDepart, CPArrivee, DateDepart, DateArrivee, VilleDepart, VilleArrivee, validee, Prix, acheteur,  redacteur
+) VALUES (
+0 , DATE '2019-03-21', "Annonce de test", "test", 92100, 78200, DATE '2019-05-04', DATE '2019-05-04', "Clermont Ferrand", "Brives",false, 100,null, 2
+);
+
+INSERT INTO annonces (
+annonceid, DateRedaction, Titre, Description, CPDepart, CPArrivee, DateDepart, DateArrivee, VilleDepart, VilleArrivee, validee, Prix, acheteur,  redacteur
+) VALUES (
+0 , DATE '2019-06-21', "Annonce supplémentaire", "test", 92100, 78200, DATE '2019-05-04', DATE '2019-05-04', "Tours", "Toulon",false, 800,null, 1
+);
+
 
 #INSERTION MESSAGES
 
 INSERT INTO messages (messageid, Titre, Date, Contenu, annonceid, userid) VALUES (0 , "Possible PittBull?", DATE '2018-02-19', "Bonjour, j'ai un pitbull gentil, est-ce que vous accepteriez de nous emmener?", 1, 2);
 
 INSERT INTO messages (messageid, Titre, Date, Contenu, annonceid, userid) VALUES (0 , "RE - Possible PittBull?", DATE '2018-02-19', "Biensûr, pas de problème", 1, 1);
+
+
+INSERT INTO articles (articleid, contenu, date, Titre, visuel) VALUES (
+0, ("Wheels for pets, c'est la solution au problème commun à ceux qui n'ont pas de véhicule mais qui ont des animaux de compagnie.
+ La plateforme vous offre la possibilité de vous retrouver et de vous organiser afin de déplacer vos meilleurs amis à poils ou plumes."), 
+ '2019-01-01', 'https://www.sciencesetavenir.fr/assets/img/2018/01/26/cover-r4x3w1000-5a6b5197ebd39-sipa-51314555-000005.jpg')
