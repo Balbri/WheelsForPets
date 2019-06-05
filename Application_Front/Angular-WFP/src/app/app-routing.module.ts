@@ -5,6 +5,7 @@ import { ListeAnnoncesComponent } from './liste-annonces/liste-annonces.componen
 import { PageAnnonceComponent } from './page-annonce/page-annonce.component';
 import { AjoutAnnonceComponent } from './ajout-annonce/ajout-annonce.component';
 import { MentionsLegalesComponent } from './mentions-legales/mentions-legales.component';
+import { AdminUserlistComponent } from './admin-userlist/admin-userlist.component';
 
 
 const routes: Routes = [
@@ -13,7 +14,8 @@ const routes: Routes = [
   {path: 'annonces', component: ListeAnnoncesComponent},
   {path: 'annonce/:id', component: PageAnnonceComponent},
   {path: 'posterannonce', component: AjoutAnnonceComponent},
-  {path: 'mentionslegales', component: MentionsLegalesComponent}
+  {path: 'mentionslegales', component: MentionsLegalesComponent},
+  {path: 'admin/users', component: AdminUserlistComponent}
 
 ];
 

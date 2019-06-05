@@ -18,6 +18,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AjoutAnnonceComponent } from './ajout-annonce/ajout-annonce.component';
 import { MentionsLegalesComponent } from './mentions-legales/mentions-legales.component';
 import { MatDatepickerModule, MatNativeDateModule } from '@angular/material';
+import { AdminUserlistComponent } from './admin-userlist/admin-userlist.component';
 
 @NgModule({
   declarations: [
@@ -30,6 +31,7 @@ import { MatDatepickerModule, MatNativeDateModule } from '@angular/material';
     MessagesDeLannonceComponent,
     AjoutAnnonceComponent,
     MentionsLegalesComponent,
+    AdminUserlistComponent,
     
     
   ],

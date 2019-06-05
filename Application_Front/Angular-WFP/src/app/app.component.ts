@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { AnnonceService } from './Services/AnnonceService';
+import { UserService } from './Services/UserService';
 
 
 @Component({
@@ -10,7 +11,8 @@ import { AnnonceService } from './Services/AnnonceService';
 export class AppComponent implements OnInit{
   title = 'Wheels For Pets';
 
-  constructor(private annoncesService: AnnonceService
+  constructor(private annoncesService: AnnonceService,
+    private userService : UserService
    
    
     ) {}
@@ -18,6 +20,7 @@ export class AppComponent implements OnInit{
     ngOnInit() {
       this.annoncesService.publishLastAnnonces();
       this.annoncesService.publishAnnonces();
+      this.userService.publishUsers();
       
     }
 }
