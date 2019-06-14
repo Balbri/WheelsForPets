@@ -1,14 +1,14 @@
-<div class= "contenu">
-<h3>{{ annonceAffichee?.titre }}</h3>
-<p>{{annonceAffichee?.user.prenom}}</p>
-<p>Prix fixé par {{annonceAffichee?.user.prenom}}: {{annonceAffichee?.prix}} €</p>
-<p>{{annonceAffichee?.cpDepart}}</p>
-<p>{{annonceAffichee?.villeDepart}}</p>
-<p>{{annonceAffichee?.dateDepart}}</p>
-<p>{{annonceAffichee?.description}}</p>
-<p>{{annonceAffichee?.cpArrivee}}</p>
-<p>{{annonceAffichee?.villeArrivee}}</p>
-<p>{{annonceAffichee?.dateArrivee}}</p>
+<div class= "contenu" *ngIf = "annonceAffichee" >
+<h3>{{ annonceAffichee.titre }}</h3>
+<p>{{annonceAffichee.user.prenom}}</p>
+<p>Prix fixé par {{annonceAffichee.user.prenom}}: {{annonceAffichee.prix}} €</p>
+<p>{{annonceAffichee.cpDepart}}</p>
+<p>{{annonceAffichee.villeDepart}}</p>
+<p>{{annonceAffichee.dateDepart}}</p>
+<p>{{annonceAffichee.description}}</p>
+<p>{{annonceAffichee.cpArrivee}}</p>
+<p>{{annonceAffichee.villeArrivee}}</p>
+<p>{{annonceAffichee.dateArrivee}}</p>
 
 
 

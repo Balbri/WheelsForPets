@@ -16,7 +16,7 @@
     margin: 20px;
     
     display: inline-block;
-    border-style: hidden;
+    border-style: solid;
     border-radius: 26px;
     box-shadow: none;
     text-align: left;

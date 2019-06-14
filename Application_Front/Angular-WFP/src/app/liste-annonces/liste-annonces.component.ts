@@ -20,10 +20,9 @@ export class ListeAnnoncesComponent implements OnInit, OnDestroy {
     ) {}
 
   ngOnInit() {
+   
       this.allAnnoncesList = this.annonceService.allAnnoncesDispo$;
   }
 
-  ngOnDestroy() {
-    this.allAnnoncesList = null;
-  }
+  
 }

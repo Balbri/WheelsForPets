@@ -7,6 +7,7 @@ import { AnnonceService } from '../Services/AnnonceService';
 import { Location } from '@angular/common';
 import { UserService } from '../Services/UserService';
 import { BehaviorSubject } from 'rxjs';
+import { Router } from '@angular/router';
 @Component({
   selector: 'app-ajout-annonce',
   templateUrl: './ajout-annonce.component.html',
@@ -17,29 +18,21 @@ export class AjoutAnnonceComponent implements OnInit {
   constructor(
     private location: Location,
     private annonceService: AnnonceService,
-    private userService: UserService) { }
+    private userService: UserService,
+    private router: Router) { }
 
   public annonceForm: FormGroup;
   private annonceId = 0;
   private validee = false;
   messageList: Message[] = [];
- 
-  
-  
   acheteur: User;
   user: User;
-  allUsersList: BehaviorSubject<User[]>;
+  allUsersList: User[] = [];
 
 
   ngOnInit() {
-    this.allUsersList = this.userService.userList$;
-    this.userService.publishUsers();
-    //this.allUsersList.subscribe();
-    this.user = this.allUsersList.value[1];
-    console.log("log de la liste d'users");
-    console.log(this.allUsersList);
-    console.log("log de allUsersList[1]");
-    console.log(this.allUsersList.value[1]);
+    this.getUsers();
+    
     this.annonceForm = new FormGroup({
       titre: new FormControl('', [Validators.required, Validators.maxLength(60)]),
       description: new FormControl('', [Validators.required, Validators.maxLength(1000)]),
@@ -87,5 +80,20 @@ export class AjoutAnnonceComponent implements OnInit {
       acheteur: this.acheteur = null
     }
     this.annonceService.createAnnonce(annonce);
+    this.location.back();
+  }
+
+  getUsers() :void {
+
+    this.userService.getUsers().subscribe(users => {
+      this.allUsersList = users;
+      this.user = this.allUsersList[1];
+    console.log("log de la liste d'users");
+    console.log(this.allUsersList);
+    console.log("log de allUsersList[1]");
+    console.log(this.allUsersList[1]);
+    
+    });
+
   }
 }

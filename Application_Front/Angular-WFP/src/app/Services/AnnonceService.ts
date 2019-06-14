@@ -74,23 +74,18 @@ import { MatSnackBar } from '@angular/material';
         );
       }
 
-   
+      public getAllAnnonces(): Observable<Annonce[]> {
+        return this.httpClient.get<Annonce[]>('http://localhost:8080/api/annonces')
+    }
     /**
    * Cette fonction permet de trouver un livre dans la liste des livres chargés par l'application
    * grâce à son ID.
    * @param annonceId l'id qu'il faut rechercher dans la liste.
    */
   public findAnnonce(annonceId: number): Observable<Annonce> {
-    if (annonceId) {
-      if (!this.allAnnoncesDispo) {
         this.anId = annonceId;
         return this.getAnnonces().pipe(map(annonces => annonces.find(annonce => annonce.annonceId === annonceId)));
-      }
-      return of(this.annoncesDispo.find(annonce => annonce.annonceId === annonceId));
-    } else {
-      return of(new Annonce(0, null, '', '', '', null, null, '', 0, null, null, null, null, null, null, null));
-    }
-  }
+   }
 
 
 
@@ -104,7 +99,8 @@ import { MatSnackBar } from '@angular/material';
     this.httpClient.post<Annonce>('http://localhost:8080/api/annonces', nouvelleAnnonce).subscribe(
       nouvelleAnnonce => {
         this.allAnnoncesDispo.push(nouvelleAnnonce);
-        this.allAnnoncesDispo$.next(this.allAnnoncesDispo);
+        this.allAnnoncesDispo$.next(this.allAnnoncesDispo)
+        this.annoncesDispo$.next(this.allAnnoncesDispo.reverse());
       },
       error => {
         // popu-up erreur
@@ -113,6 +109,7 @@ import { MatSnackBar } from '@angular/material';
         });
       }
     );
+    
   }
 
 

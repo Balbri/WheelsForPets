@@ -30,6 +30,7 @@ export class PageAnnonceComponent implements OnInit, OnDestroy {
   }
 
   getAnnonceById(id: number): void {
-    this.annonceService.findAnnonce(id).subscribe(annonce => this.annonceAffichee = annonce);
+    this.annonceService.findAnnonce(id).subscribe(annonce => {this.annonceAffichee = annonce;
+    console.log(this.annonceAffichee)});
   }
 }

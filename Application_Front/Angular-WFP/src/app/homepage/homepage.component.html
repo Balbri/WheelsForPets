@@ -46,7 +46,7 @@
 
 <div id=container-cartes>
   <h3 id="titre-dernieres-annonces" class="text-center">nos derniers <span class="big-title">covoiturages</span></h3>
-  <mat-card class="carte-annonce" *ngFor="let annonce of annonceList | async">
+  <mat-card class="carte-annonce" *ngFor="let annonce of annonceList | async | slice: 0:3">
     <a routerLink="/annonce/{{annonce.annonceId}}">// TODO
       <div class="lieux-carte">
         <p class="bold">{{ annonce.villeDepart }}, ({{annonce.cpDepart}}) </p>
