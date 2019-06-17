@@ -1,0 +1,22 @@
+button {
+    height: 42px;
+    padding: 4px 0 0;}
+    
+input {
+    min-width: 860px;
+    height: 70px;
+    border-radius: 35px;
+    box-shadow: 0 0 78.3px 8.7px rgba(1, 1, 1, 0.06);
+    background-color: #ffffff;
+    border: none;
+  }
+
+  .carte-annonce {
+    min-width: 800px;
+    padding: 2%;
+    text-align: left;
+    display: inline-block;
+    border-style: hidden;
+    border-radius: 26px;
+    box-shadow: none;
+}

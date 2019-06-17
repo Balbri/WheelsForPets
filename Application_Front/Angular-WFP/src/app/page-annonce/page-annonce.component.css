@@ -1,8 +1,7 @@
 #conteneur-cartes {padding-top: 30px;}
 
 .carte-annonce {
-    min-width: 860px;
-    margin: 0 20px 20px 0;
+    min-width: 800px;
     padding: 2%;
     text-align: left;
     display: inline-block;
@@ -11,11 +10,13 @@
     box-shadow: none;
 }
 
+p {max-width: 800px;}
+
 .lieux-carte, .prix-carte, .date-annonce,.lieux-carte {margin-top: 16px;}
 
-h4.titre-annonce {
+h2.titre-annonce {
     font-family: Poppins;
-    font-size: 16px;
+    font-size: 20px;
     font-weight: bold;
     letter-spacing: normal;
     color: #6740f4;

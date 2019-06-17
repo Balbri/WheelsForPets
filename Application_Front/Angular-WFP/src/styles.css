@@ -60,7 +60,7 @@ h3 {font-family: Poppins;
     padding:60px 0 20px 0;
 }
 
-.button {
+.button, button {
     width: 222px;
     height: 32px;
     border-radius: 19.5px;
@@ -71,9 +71,10 @@ h3 {font-family: Poppins;
     text-align: center;
     text-transform: uppercase;
     text-decoration:none;
-    margin-top:20px;}
+    margin-top:20px;
+    border: none;}
 
-.button:hover {background-color: #353535;color:#FFF;filter: opacity(0.9);}
+.button:hover, button:hover  {background-color: #353535;color:#FFF;filter: opacity(0.9);}
 
 #disclaimer {
     height:60px;
@@ -83,6 +84,13 @@ h3 {font-family: Poppins;
     padding-top: 30px;
 }
 #conteneur-cartes {background:#efefef;padding-bottom: 30px;text-align: center;}
+h4.titre-annonce {
+    font-family: Poppins;
+    font-size: 20px;
+    font-weight: bold;
+    letter-spacing: normal;
+    color: #6740f4;
+}
 #section-asso { 
     width:50%;
     float:left; 

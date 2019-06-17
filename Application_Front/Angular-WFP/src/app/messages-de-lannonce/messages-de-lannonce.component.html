@@ -1,5 +1,5 @@
-<div class=contenu>
-    <h3 class="text-center text-violet">discutez de l'annonce <span class="big-title">entre vous</span></h3>
+<div class="contenu-utile">
+  <h3 class="text-center text-violet">discutez de l'annonce <span class="big-title">entre vous</span></h3>
   <mat-card class="carte-annonce" *ngFor="let message of linkedMessagesList | async">
     <p class=bold>{{ message.titre }} </p>
     <p> {{ message.date}}</p>
@@ -8,13 +8,12 @@
   </mat-card>
 
   <form [formGroup]="messageForm">
-    Titre du message:<br>
-    <input type="text" name="titre" placeholder="montitre" formControlName="titreMessage"><br>
+
     Contenu du message:<br>
     <input type="text" name="contenu" placeholder="Veuillez rédiger votre message ici" formControlName="contenuMessage">
   </form>
   <div>
-    <button mat-raised-button (click)="onSave()" [disabled]="messageForm.invalid">ENREGISTRER</button>
+    <button class="bg-violet text-blanc" (click)="onSave()" [disabled]="messageForm.invalid">Envoyer un message</button>
   </div>
 
 

@@ -70,14 +70,6 @@
 
 .lieux-carte, .prix-carte, .date-annonce, .redacteur-carte {margin-top: 16px;}
 
-h4.titre-annonce {
-    font-family: Poppins;
-    font-size: 16px;
-    font-weight: bold;
-    letter-spacing: normal;
-    color: #6740f4;
-}
-
 .date-annonce span { 
     font-family: Poppins;
     font-size: 12px;

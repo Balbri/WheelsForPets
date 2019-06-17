@@ -46,7 +46,6 @@ export class MessagesDeLannonceComponent implements OnInit {
   
   initForm() {
     this.messageForm = this.formBuilder.group({
-      titreMessage: [this.titreInit, Validators.required],
       contenuMessage: [this.contenuInit, Validators.required]
     });
   }
@@ -55,7 +54,7 @@ export class MessagesDeLannonceComponent implements OnInit {
       const formValue = this.messageForm.value;
     const newMessage = new Message(
       this.idDefault = 0,
-      formValue['titreMessage'],
+      this.titreInit = ("Re : " + this.annonceAffichee.titre),
       formValue['contenuMessage'],
       new Date(),
      this.annonceAffichee,
