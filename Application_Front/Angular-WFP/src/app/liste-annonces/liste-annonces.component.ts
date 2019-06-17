@@ -9,7 +9,7 @@ import { AnnonceService } from '../Services/AnnonceService';
   templateUrl: './liste-annonces.component.html',
   styleUrls: ['./liste-annonces.component.css']
 })
-export class ListeAnnoncesComponent implements OnInit, OnDestroy {
+export class ListeAnnoncesComponent implements OnInit {
 
   annonces: Annonce[];
   

@@ -1,22 +1,21 @@
+<div class=contenu>
+    <h3 class="text-center text-violet">discutez de l'annonce <span class="big-title">entre vous</span></h3>
+  <mat-card class="carte-annonce" *ngFor="let message of linkedMessagesList | async">
+    <p class=bold>{{ message.titre }} </p>
+    <p> {{ message.date}}</p>
+    <p class>{{ message.contenu }} </p>
+    <p class="italique"> {{message.user.prenom}}</p>
+  </mat-card>
 
-<div class = contenu>
-  <H4>Discutez de l'annonce entre-vous</H4>
-    <mat-card class="carte-annonce" *ngFor="let message of linkedMessagesList | async">
-            <p class = bold>{{ message.titre }} </p>
-            <p> {{ message.date}}</p>
-            <p class>{{ message.contenu }} </p> 
-            <p class = "italique"> {{message.user.prenom}}</p>
-    </mat-card>
-
-    <form [formGroup]="messageForm">
-        Titre du message:<br>
-        <input type="text" name="titre" placeholder="montitre" formControlName="titreMessage"><br>
-        Contenu du message:<br>
-        <input type="text" name="contenu" placeholder="Veuillez rédiger votre message ici" formControlName="contenuMessage">
-      </form> 
-      <div >
-          <button mat-raised-button (click)="onSave()" [disabled]="messageForm.invalid">ENREGISTRER</button>
-        </div>
-  
-  
+  <form [formGroup]="messageForm">
+    Titre du message:<br>
+    <input type="text" name="titre" placeholder="montitre" formControlName="titreMessage"><br>
+    Contenu du message:<br>
+    <input type="text" name="contenu" placeholder="Veuillez rédiger votre message ici" formControlName="contenuMessage">
+  </form>
+  <div>
+    <button mat-raised-button (click)="onSave()" [disabled]="messageForm.invalid">ENREGISTRER</button>
   </div>
+
+
+</div>

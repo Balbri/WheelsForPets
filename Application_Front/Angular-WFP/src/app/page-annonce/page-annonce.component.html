@@ -1,17 +1,60 @@
-<div class= "contenu" *ngIf = "annonceAffichee" >
-<h3>{{ annonceAffichee.titre }}</h3>
-<p>{{annonceAffichee.user.prenom}}</p>
-<p>Prix fixé par {{annonceAffichee.user.prenom}}: {{annonceAffichee.prix}} €</p>
-<p>{{annonceAffichee.cpDepart}}</p>
-<p>{{annonceAffichee.villeDepart}}</p>
-<p>{{annonceAffichee.dateDepart}}</p>
-<p>{{annonceAffichee.description}}</p>
-<p>{{annonceAffichee.cpArrivee}}</p>
-<p>{{annonceAffichee.villeArrivee}}</p>
-<p>{{annonceAffichee.dateArrivee}}</p>
-
-
-
-
-<app-messages-de-lannonce></app-messages-de-lannonce>
+<div id="disclaimer" class="contenu-utile" *ngIf="annonceAffichee">
+    <a routerLink="/home" class="text-blanc text-deco">Wheels For Pets&nbsp;&nbsp;>&nbsp;&nbsp;</a><a
+        routerLink="/annonces" class="text-blanc text-deco">Tous nos covoiturages&nbsp;&nbsp;>&nbsp;&nbsp;</a><a
+        routerLink="/annonce/{{annonceAffichee}}" class="text-vert italic bold">{{ annonceAffichee.titre }}</a>
 </div>
+
+<div id="conteneur-cartes" class="contenu-utile">
+    <mat-card class="carte-annonce contenu-utile" *ngIf="annonceAffichee">
+
+        <h4 class="titre-annonce">
+            {{annonceAffichee.titre}}
+        </h4>
+        <div class="date-annonce">
+            <img src="/assets/baseline-today.svg" alt="#" /><span> Dep.
+                {{annonceAffichee.dateDepart|date:"dd/MM/yyyy"}}</span><span>
+                Arr.{{annonceAffichee.dateArrivee|date:"dd/MM/yyyy"}}</span>
+        </div>
+        <div class="lieux-carte">
+            <p>{{ annonceAffichee.villeDepart }}, ({{annonceAffichee.cpDepart}}) </p>
+            <p>{{ annonceAffichee.villeArrivee }}, ({{annonceAffichee.cpArrivee}}) </p>
+        </div>
+        <div class="prix-carte">{{ annonceAffichee.prix | number:'1.2-2'}} €</div>
+        <hr>
+        <div class="description-carte">
+            <p>{{annonceAffichee.description}}</p>
+        </div>
+        <hr>
+        <div class="redacteur-carte">
+            <p>Annonce postée par</p>
+            <p class="bold">{{ annonceAffichee.user.prenom}}</p>
+        </div>
+    </mat-card>
+    <app-messages-de-lannonce></app-messages-de-lannonce>
+
+</div>
+<div id="section-asso-pro">
+    <div id="section-asso">
+        <div class="contenu-utile-int">
+            <h3 class="text-blanc">vous êtes <span class="big-title">une association ?</span></h3>
+            <p class="text-intro, text-blanc">Déplacer son animal dans de bonnes conditions peut être un véritable
+                parcours du
+                combattant.</p>
+            <p class="text-blanc">WheelsForPets proposent aux associations de se mettre en relation avec d'autres
+                particuliers ou avec des professionnels du transports. </p>
+            <a href="#" class="button bg-blanc text-gris">En savoir plus</a>
+        </div>
+    </div>
+    <div id="section-pro">
+        <div class="contenu-utile-int">
+            <h3 class="text-blanc text-align-right">vous êtes <span class="big-title">un professionnel ?</span></h3>
+            <p class="text-intro, text-blanc text-align-right">Vous êtes un professionnel du transports et vous
+                souhaitez vous
+                mettre au service de WheelsForPets ? </p>
+            <p class="text-blanc text-align-right">WheelsForPets recherche activement des professionnels pour travailler
+                avec
+                eux et instaurer une relation de confiance ! </p>
+            <a href="#" class="button bg-blanc text-gris">En savoir plus</a>
+            <div class="clear"></div>
+        </div>
+    </div>

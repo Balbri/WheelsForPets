@@ -1,50 +1,56 @@
-.container-cartes {
-    width: 100%;
-    height: 579px;
-    background-image: url("/assets/bg-chat.png");
-    background-repeat: no-repeat;
-    background-color: #e5e9eb;
-    text-align: center;
-    object-fit: contain;
-    
-}
+#conteneur-cartes {background:#efefef;padding-bottom: 30px;text-align: center;}
 
 .carte-annonce {
-    
     min-width: 352px;
-    min-height: 312px;
-    margin: 20px;
-    
+    min-height: 300px;
+    margin: 0 20px 20px 0;
+    padding: 2%;
     display: inline-block;
-    border-style: solid;
+    border-style: hidden;
     border-radius: 26px;
     box-shadow: none;
     text-align: left;
-    
 }
 
-.lieux-carte {
+.lieux-carte, .prix-carte, .date-annonce, .redacteur-carte {margin-top: 16px;}
+
+h4.titre-annonce {
+    font-family: Poppins;
+    font-size: 16px;
+    font-weight: bold;
+    letter-spacing: normal;
+    color: #6740f4;
+}
+
+.date-annonce span { 
+    font-family: Poppins;
+    font-size: 12px;
+    font-weight: bold;
+    color: #353535;
+vertical-align: super;}
+
+.lieux-carte p {
+    font-family: Poppins;
     font-size: 14px;
+    font-weight: 600;
+    line-height: 12px;
     color: #35db80;
-    text-transform: uppercase;
-    text-decoration: none;
-    margin-top: 43px;
-    margin-left: 37px;
 }
 
-.carte-annonce a {
-    text-decoration: none;
-}
+.carte-annonce a {text-decoration: none;}
 
 .prix-carte {
-    font-size: 22px;
+    font-size: 24px;
+    font-weight: 600;
     color: #6740f4;
     text-decoration: none;
-    margin-left: 37px;
+    font-family: Poppins;}
+
+.redacteur-carte p {
+    font-family: Poppins;
+    font-size: 12px;
+    line-height: 10px;
+    color: #353535;
 }
 
-.redacteur-carte {
-    color: #353535;
-    margin-left: 37px;
-    font-style: italic;
-}
+.button-annonce{text-align: center;}

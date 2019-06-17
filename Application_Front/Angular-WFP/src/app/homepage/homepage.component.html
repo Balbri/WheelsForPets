@@ -47,15 +47,28 @@
 <div id=container-cartes>
   <h3 id="titre-dernieres-annonces" class="text-center">nos derniers <span class="big-title">covoiturages</span></h3>
   <mat-card class="carte-annonce" *ngFor="let annonce of annonceList | async | slice: 0:3">
-    <a routerLink="/annonce/{{annonce.annonceId}}">// TODO
-      <div class="lieux-carte">
-        <p class="bold">{{ annonce.villeDepart }}, ({{annonce.cpDepart}}) </p>
-        <p class="bold">{{ annonce.villeArrivee }}, ({{annonce.cpArrivee}}) </p>
+    <a routerLink="/annonce/{{annonce.annonceId}}">
+      <h4 class="titre-annonce">
+        {{annonce.titre}}
+      </h4>
+      <div class="date-annonce">
+        <img src="/assets/baseline-today.svg" alt="#" /><span> Dep.
+          {{annonce.dateDepart|date:"dd/MM/yyyy"}}</span><span> Arr.{{annonce.dateArrivee|date:"dd/MM/yyyy"}}</span>
       </div>
-      <div class="bold prix-carte">{{ annonce.prix | number:'1.2-2'}} €</div>
-      <div class="bold redacteur-carte"> {{ annonce.user.prenom}}</div>
+      <div class="lieux-carte">
+        <p>{{ annonce.villeDepart }}, ({{annonce.cpDepart}}) </p>
+        <p>{{ annonce.villeArrivee }}, ({{annonce.cpArrivee}}) </p>
+      </div>
+      <div class="prix-carte">{{ annonce.prix | number:'1.2-2'}} €</div>
+      <div class="redacteur-carte">
+        <p>Annonce postée par</p>
+        <p class="bold">{{ annonce.user.prenom}}</p>
+      </div>
+      <div class="button-annonce"><a href="#" class="button text-center bg-violet text-blanc">En savoir plus</a></div>
     </a>
   </mat-card>
+  <div class="clear"></div>
+  <a routerLink="/annonces" class="button bg-vert text-blanc">Toutes les annonces</a>
 </div>
 
 <div id="section-app">

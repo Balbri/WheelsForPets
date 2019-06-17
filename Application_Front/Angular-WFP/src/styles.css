@@ -28,6 +28,7 @@
 .majuscule {text-transform: uppercase;}
 .text-align-left {text-align: left;}
 .text-align-right {text-align: right;}
+.text-deco {text-decoration: none;}
 .bg-vert {background-color: #35db80;}
 .bg-violet {background-color: #6740f4;}
 .bg-blanc {background-color: #FFF;}
@@ -35,7 +36,7 @@
 .text-vert {color: #35db80;}
 .text-blanc {color: #FFF;}
 .text-gris {color:#353535;}
-
+hr {background-color:#dcdcdc; height:2px;margin: 20px 0;border: none;}
 
 p.text-intro {font-family: Poppins;
     font-size: 16px;
@@ -73,16 +74,39 @@ h3 {font-family: Poppins;
     margin-top:20px;}
 
 .button:hover {background-color: #353535;color:#FFF;filter: opacity(0.9);}
+
+#disclaimer {
+    height:60px;
+    background-color: rgb(53, 53, 53);
+    color: white;
+    vertical-align: middle;
+    padding-top: 30px;
+}
+#conteneur-cartes {background:#efefef;padding-bottom: 30px;text-align: center;}
+#section-asso { 
+    width:50%;
+    float:left; 
+    display: inline-block;
+    background-color:#6740f4;}
+#section-pro {    
+    width:50%;
+    display:inline-block;
+    background-color:#35db80;}
+#section-pro .button {float: right}
+#section-asso .contenu-utile-int, #section-pro .contenu-utile-int {padding-bottom: 60px;}
       
-@media screen and (max-width: 1322px) {
+
+@media screen and (max-width: 1320px) {
     .contenu-utile-menu {
         padding-left: 0%;
         padding-right: 0%;
     }
-
     .contenu-utile,  .contenu-utile-int {
         padding-left: 2%;
         padding-right: 2%;
     }
+    #section-asso, #section-pro, #section-visuel-app, #section-text-app {width:100%;}
+    .right {float: none;}
   }
+  
   

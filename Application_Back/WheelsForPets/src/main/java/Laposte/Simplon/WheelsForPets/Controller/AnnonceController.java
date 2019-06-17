@@ -15,7 +15,7 @@ import java.util.Optional;
 
 @RestController
 @RequestMapping("/api")
-@CrossOrigin(origins = "localhost://4200")
+@CrossOrigin(origins = "*")
 public class AnnonceController {
 
 
