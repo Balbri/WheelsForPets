@@ -68,40 +68,6 @@
     box-shadow: none;
 }
 
-.lieux-carte, .prix-carte, .date-annonce, .redacteur-carte {margin-top: 16px;}
-
-.date-annonce span { 
-    font-family: Poppins;
-    font-size: 12px;
-    font-weight: bold;
-    color: #353535;
-vertical-align: super;}
-.lieux-carte p {
-    font-family: Poppins;
-    font-size: 14px;
-    font-weight: 600;
-    line-height: 12px;
-    color: #35db80;
-}
-
-.carte-annonce a {text-decoration: none;}
-
-.prix-carte {
-    font-size: 24px;
-    font-weight: 600;
-    color: #6740f4;
-    text-decoration: none;
-    font-family: Poppins;}
-
-.redacteur-carte p {
-    font-family: Poppins;
-    font-size: 12px;
-    line-height: 10px;
-    color: #353535;
-}
-
-.button-annonce{text-align: center;}
-
 @media screen and (max-width: 1320px) {
     #section-visuel-app, #section-text-app {width:100%;}
     #section-app-logo img {float:none;padding-left:2%;}

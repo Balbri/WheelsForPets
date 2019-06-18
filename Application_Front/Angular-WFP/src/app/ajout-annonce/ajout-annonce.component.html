@@ -1,7 +1,11 @@
+<div id="disclaimer" class="contenu-utile">
+    <a routerLink="/home" class="text-blanc text-deco">Wheels For Pets&nbsp;&nbsp;>&nbsp;&nbsp;</a><a
+        routerLink="/posterannonce" class="text-vert italic bold">Proposer un trajet</a>
+</div>
 
-<section fxLayout="row wrap" fxLayoutAlign="center center">
-  <mat-card fxFlex="500px" fxFlex.xs="100%">
-    <mat-card-title>Créer une nouvelle annonce</mat-card-title>
+<section fxLayout="row wrap" fxLayoutAlign="center center"class="contenu-utile">
+  <div fxFlex="500px" fxFlex.xs="100%">
+      <h3 class="text-center text-violet">proposer un <span class="big-title">trajet</span></h3>
     <form [formGroup]="annonceForm" autocomplete="off" novalidate (ngSubmit)="createAnnonce(annonceForm.value)"
       fxLayout="column wrap" fxLayoutAlign="center center" fxLayoutGap="10px">
 
@@ -11,7 +15,7 @@
           <mat-card-content>
 
             <mat-form-field>
-                <ng-template matStepLabel>Détaillez votre annonce</ng-template>
+              <ng-template matStepLabel><p class="fil-ariane">Détaillez votre annonce</p></ng-template>
               <input matInput type="text" placeholder="Titre de l'annonce" formControlName="titre" id="titre">
               <mat-hint align="end">Pas plus de 60 caractères.</mat-hint>
               <mat-error *ngIf="hasError('titre', 'required')">Un titre est requis</mat-error>
@@ -25,98 +29,101 @@
               <mat-error *ngIf="hasError('description', 'maxlength')">Il y a plus de 1000 caractères</mat-error>
             </mat-form-field>
             <div>
-              <button mat-button matStepperNext type="button">Suivant</button>
+              <button class="bg-violet text-blanc right" matStepperNext type="button">Suivant</button>
             </div>
           </mat-card-content>
         </mat-step>
 
-        <mat-step >
-            <mat-card-content>
-                <ng-template matStepLabel>Choisissez votre départ</ng-template>
-          <mat-form-field>
-            <input matInput [matDatepicker]="picker" placeholder="Date de départ" formControlName="dateDepart"
-              id="dateDepart" readonly (click)="picker.open()">
-            <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
-            <mat-datepicker #picker></mat-datepicker>
-          </mat-form-field>
+        <mat-step>
+          <mat-card-content>
+            <ng-template matStepLabel>Choisissez votre départ</ng-template>
+            <mat-form-field>
+              <input matInput [matDatepicker]="picker" placeholder="Date de départ" formControlName="dateDepart"
+                id="dateDepart" readonly (click)="picker.open()">
+              <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+              <mat-datepicker #picker></mat-datepicker>
+            </mat-form-field>
 
-          <mat-form-field>
-            <input matInput type="text" placeholder="Ville de départ" formControlName="villeDepart" id="villeDepart">
-            <mat-hint align="end">Pas plus de 60 caractères.</mat-hint>
-            <mat-error *ngIf="hasError('villeDepart', 'required')">Une ville est requise</mat-error>
-            <mat-error *ngIf="hasError('villeDepart', 'maxlength')">Il y a plus de 60 caractères</mat-error>
-          </mat-form-field>
+            <mat-form-field>
+              <input matInput type="text" placeholder="Ville de départ" formControlName="villeDepart" id="villeDepart">
+              <mat-hint align="end">Pas plus de 60 caractères.</mat-hint>
+              <mat-error *ngIf="hasError('villeDepart', 'required')">Une ville est requise</mat-error>
+              <mat-error *ngIf="hasError('villeDepart', 'maxlength')">Il y a plus de 60 caractères</mat-error>
+            </mat-form-field>
 
-          <mat-form-field>
-            <input matInput type="number" placeholder="Code-Postal de départ" formControlName="cpDepart" id="cpDepart"
-              min="01000" max="98620">
+            <mat-form-field>
+              <input matInput type="number" placeholder="Code-Postal de départ" formControlName="cpDepart" id="cpDepart"
+                min="01000" max="98620">
 
-            <mat-error *ngIf="hasError('cpDepart', 'required')">Un Code Postal est requis</mat-error>
-            <mat-error *ngIf="hasError('cpDepart', 'min')">Ce n'est pas un code postal valide</mat-error>
-            <mat-error *ngIf="hasError('cpDepart', 'max')">Ce n'est pas un code postal valide</mat-error>
-          </mat-form-field>
+              <mat-error *ngIf="hasError('cpDepart', 'required')">Un Code Postal est requis</mat-error>
+              <mat-error *ngIf="hasError('cpDepart', 'min')">Ce n'est pas un code postal valide</mat-error>
+              <mat-error *ngIf="hasError('cpDepart', 'max')">Ce n'est pas un code postal valide</mat-error>
+            </mat-form-field>
 
-          <div>
-            <button mat-button matStepperNext type="button">Suivant</button>
-            <button mat-button matStepperPrevious type="button">Retour</button>
-          </div>
+            <div>
+                <button class="bg-violet text-blanc right" matStepperNext type="button">Suivant</button>
+                <button matStepperPrevious type="button">Retour</button>
+            </div>
           </mat-card-content>
         </mat-step>
 
-        <mat-step >
-          
-            <mat-card-content>
-                <ng-template matStepLabel>Choisissez votre arrivée</ng-template>
-          <mat-form-field>
-            <input matInput [matDatepicker]="picker2" placeholder="Date d'arrivée" formControlName="dateArrivee"
-              id="dateArrivee" readonly (click)="picker2.open()">
-            <mat-datepicker-toggle matSuffix [for]="picker2"></mat-datepicker-toggle>
-            <mat-datepicker #picker2></mat-datepicker>
-          </mat-form-field>
+        <mat-step>
 
-          <mat-form-field>
-            <input matInput type="text" placeholder="Ville d'arrivée" formControlName="villeArrivee" id="villeArrivee">
-            <mat-hint align="end">Pas plus de 60 caractères.</mat-hint>
-            <mat-error *ngIf="hasError('villeArrivee', 'required')">Une ville est requise</mat-error>
-            <mat-error *ngIf="hasError('villeArrivee', 'maxlength')">Il y a plus de 60 caractères</mat-error>
-          </mat-form-field>
+          <mat-card-content>
+            <ng-template matStepLabel>Choisissez votre arrivée</ng-template>
+            <mat-form-field>
+              <input matInput [matDatepicker]="picker2" placeholder="Date d'arrivée" formControlName="dateArrivee"
+                id="dateArrivee" readonly (click)="picker2.open()">
+              <mat-datepicker-toggle matSuffix [for]="picker2"></mat-datepicker-toggle>
+              <mat-datepicker #picker2></mat-datepicker>
+            </mat-form-field>
 
-          <mat-form-field>
-            <input matInput type="number" placeholder="Code-Postal d'arrivée" formControlName="cpArrivee"
-              id="cpArrivee">
-            <mat-hint align="end">Pas plus de 5 caractères.</mat-hint>
-            <mat-error *ngIf="hasError('cpArrivee', 'required')">Un Code Postal est requis</mat-error>
-            <mat-error *ngIf="hasError('cpArrivee', 'min')">Ce n'est pas un code postal valide</mat-error>
-            <mat-error *ngIf="hasError('cpArrivee', 'max')">Ce n'est pas un code postal valide</mat-error>
-          </mat-form-field>
+            <mat-form-field>
+              <input matInput type="text" placeholder="Ville d'arrivée" formControlName="villeArrivee"
+                id="villeArrivee">
+              <mat-hint align="end">Pas plus de 60 caractères.</mat-hint>
+              <mat-error *ngIf="hasError('villeArrivee', 'required')">Une ville est requise</mat-error>
+              <mat-error *ngIf="hasError('villeArrivee', 'maxlength')">Il y a plus de 60 caractères</mat-error>
+            </mat-form-field>
 
-          <div>
-            <button mat-button matStepperNext type="button">Suivant</button>
-            <button mat-button matStepperPrevious type="button">Retour</button>
-          </div>
+            <mat-form-field>
+              <input matInput type="number" placeholder="Code-Postal d'arrivée" formControlName="cpArrivee"
+                id="cpArrivee">
+              <mat-hint align="end">Pas plus de 5 caractères.</mat-hint>
+              <mat-error *ngIf="hasError('cpArrivee', 'required')">Un Code Postal est requis</mat-error>
+              <mat-error *ngIf="hasError('cpArrivee', 'min')">Ce n'est pas un code postal valide</mat-error>
+              <mat-error *ngIf="hasError('cpArrivee', 'max')">Ce n'est pas un code postal valide</mat-error>
+            </mat-form-field>
+
+            <div>
+                <button class="bg-violet text-blanc right" matStepperNext type="button">Suivant</button>
+                <button matStepperPrevious type="button">Retour</button>
+            </div>
           </mat-card-content>
         </mat-step>
 
-        <mat-step >
-            <mat-card-content>
-                <ng-template matStepLabel>Définissez le prix de la course</ng-template>
-          <mat-form-field>
-            <input matInput type="number" placeholder="Prix" formControlName="prix" id="prix" max="100">
-            <mat-hint align="end">100€ maximum</mat-hint>
-            <mat-error *ngIf="hasError('prix', 'required')">Un prix est requis</mat-error>
-            <mat-error *ngIf="hasError('prix', 'max')">100€ maximum</mat-error>
-          </mat-form-field>
+        <mat-step>
+          <mat-card-content>
+            <ng-template matStepLabel>Définissez le prix de la course</ng-template>
+            <mat-form-field>
+              <input matInput type="number" placeholder="Prix" formControlName="prix" id="prix" max="100">
+              <mat-hint align="end">100€ maximum</mat-hint>
+              <mat-error *ngIf="hasError('prix', 'required')">Un prix est requis</mat-error>
+              <mat-error *ngIf="hasError('prix', 'max')">100€ maximum</mat-error>
+            </mat-form-field>
           </mat-card-content>
           <div>
             <mat-card-actions align="center">
-                <button mat-button matStepperPrevious type="button">Retour</button>
-              <button mat-raised-button color="primary" (click)="executeAnnonceCreation()"
-                [disabled]="!annonceForm.valid">Créer</button>
-              <button type="button" mat-raised-button color="warn" (click)="onCancel()">Annuler</button>
+                <div class="right">
+                    <button class="bg-vert text-blanc" (click)="executeAnnonceCreation()"[disabled]="!annonceForm.valid">Créer</button>
+                    <button type="button" color="warn" (click)="onCancel()">Annuler</button>
+                  </div>
+              <button matStepperPrevious type="button">Retour</button>
+
             </mat-card-actions>
           </div>
         </mat-step>
       </mat-horizontal-stepper>
     </form>
-  </mat-card>
+  </div>
 </section>

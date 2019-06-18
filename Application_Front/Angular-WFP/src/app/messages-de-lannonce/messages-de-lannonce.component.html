@@ -1,15 +1,16 @@
 <div class="contenu-utile">
   <h3 class="text-center text-violet">discutez de l'annonce <span class="big-title">entre vous</span></h3>
+
   <mat-card class="carte-annonce" *ngFor="let message of linkedMessagesList | async">
-    <p class=bold>{{ message.titre }} </p>
-    <p> {{ message.date}}</p>
+    <p class="redacteur-carte bold text-vert text-left">{{message.user.prenom}}</p>
+    <img src="/assets/baseline-today.svg" alt="#" /><span class="date-annonce">&nbsp;{{message.date|date:"dd/MM/yyyy"}}</span>
+    <p class="bold italic">{{ message.titre }} </p>
     <p class>{{ message.contenu }} </p>
-    <p class="italique"> {{message.user.prenom}}</p>
   </mat-card>
+  <hr>
 
   <form [formGroup]="messageForm">
-
-    Contenu du message:<br>
+    <h4 class="text-vert bold majuscule">Contenu du message :</h4>
     <input type="text" name="contenu" placeholder="Veuillez rédiger votre message ici" formControlName="contenuMessage">
   </form>
   <div>

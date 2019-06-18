@@ -10,9 +10,9 @@
         <h2 class="titre-annonce">
             {{annonceAffichee.titre}}
         </h2>
-        <div class="date-annonce">
-            <img src="/assets/baseline-today.svg" alt="#" /><span> Dep.
-                {{annonceAffichee.dateDepart|date:"dd/MM/yyyy"}}</span><span>
+        <div class="dates-annonce">
+            <img src="/assets/baseline-today.svg" alt="#" /><span class="date-annonce">&nbsp;Dep.
+                {{annonceAffichee.dateDepart|date:"dd/MM/yyyy"}}</span><span class="date-annonce">
                 Arr.{{annonceAffichee.dateArrivee|date:"dd/MM/yyyy"}}</span>
         </div>
         <div class="lieux-carte">

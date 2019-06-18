@@ -9,15 +9,19 @@ input[type=number] {
     -moz-appearance:textfield; /* Firefox */
 }
 
-2
-3
-4
-5
-6
-	
+button {
+    width: 222px;
+    height: 42px;
+    padding: 4px 0 0;
+}
+
+mat-card {border: none;box-shadow:none;}	
 mat-form-field{
-    width: 400px;
+    width:100%
 }
 mat-card-title{
     text-align: center;
 }
+
+
+::ng-deep .mat-horizontal-stepper-header-container .fil-ariane:selection {font-weight: bold;} 

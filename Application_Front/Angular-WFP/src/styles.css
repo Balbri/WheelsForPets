@@ -25,6 +25,7 @@
 .bold {font-weight:700;}
 .italic {font-style: italic;}
 .text-center {text-align: center;}
+.text-left {text-align: left;}
 .majuscule {text-transform: uppercase;}
 .text-align-left {text-align: left;}
 .text-align-right {text-align: right;}
@@ -83,14 +84,7 @@ h3 {font-family: Poppins;
     vertical-align: middle;
     padding-top: 30px;
 }
-#conteneur-cartes {background:#efefef;padding-bottom: 30px;text-align: center;}
-h4.titre-annonce {
-    font-family: Poppins;
-    font-size: 20px;
-    font-weight: bold;
-    letter-spacing: normal;
-    color: #6740f4;
-}
+
 #section-asso { 
     width:50%;
     float:left; 
@@ -102,7 +96,49 @@ h4.titre-annonce {
     background-color:#35db80;}
 #section-pro .button {float: right}
 #section-asso .contenu-utile-int, #section-pro .contenu-utile-int {padding-bottom: 60px;}
-      
+
+#conteneur-cartes {background:#efefef;padding-bottom: 30px;text-align: center;}
+
+h4.titre-annonce {
+    font-family: Poppins;
+    font-size: 20px;
+    font-weight: bold;
+    letter-spacing: normal;
+    color: #6740f4;
+}
+.lieux-carte, .prix-carte, .dates-annonce, .redacteur-carte {margin-top: 16px;}
+
+.lieux-carte p {
+    font-family: Poppins;
+    font-size: 14px;
+    font-weight: 600;
+    line-height: 12px;
+    color: #35db80;
+}
+
+.carte-annonce a {text-decoration: none;}
+
+.date-annonce  { 
+    font-family: Poppins;
+    font-size: 16px;
+    color: #353535;
+    vertical-align: super;}
+
+.prix-carte {
+    font-size: 24px;
+    font-weight: 600;
+    color: #6740f4;
+    text-decoration: none;
+    font-family: Poppins;}
+
+.redacteur-carte p {
+    font-family: Poppins;
+    font-size: 12px;
+    line-height: 10px;
+    color: #353535;
+}
+
+.button-annonce{text-align: center;}
 
 @media screen and (max-width: 1320px) {
     .contenu-utile-menu {
